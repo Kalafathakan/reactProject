@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Menu from "../pages/Menu";
+import Food from "./Food";
 
-type PostType = {
+type MenuType = {
   _id: String,
   food_id: String,
   food_name: String,
@@ -13,23 +13,15 @@ type PostType = {
   image: String
 };
 
-// food_id: String,
-// food_name: String,
-// price: String,
-// description: String,
-// category: String,
-// active: String,
-// image: String
-
-const JsonAPI = () => {
-  const [posts, setPosts] = useState<PostType[]>([]);
+const MenuAPI = () => {
+  const [foods, setFoods] = useState<MenuType[]>([]);
 
   const sendGetRequest = async () => {
     try {
       const response = await axios.get(
         'https://shielded-depths-40144.herokuapp.com/foods'
       );
-      setPosts(response.data);
+      setFoods(response.data);
       console.log(response);
     } catch (err) {
       console.log(err);
@@ -86,17 +78,17 @@ const JsonAPI = () => {
   //   }
   // };
   useEffect(() => {
-    // fetch('https://jsonplaceholder.typicode.com/posts')
+    // fetch('https://jsonplaceholder.typicode.com/foods')
     //   .then((response) => response.json())
 
     //   .then((responseData) => {
-    //     setPosts(responseData);
+    //     setFoods(responseData);
 
     //     console.log(responseData);
     //   });
 
-    // axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-    //   setPosts(response.data);
+    // axios.get('https://jsonplaceholder.typicode.com/foods').then((response) => {
+    //   setFoods(response.data);
     //   console.log(response);
     // });
     sendGetRequest();
@@ -107,12 +99,11 @@ const JsonAPI = () => {
       {/* <button onClick={sendPostRequest}>Add Post</button>
       <button onClick={sendPutRequest}>Update Post</button>
       <button onClick={sendDeleteRequest}>Delete Post</button> */}
-      {posts.map((post) => (
-        <Menu post={post} key={post._id.toString()} />
+      {foods.map((food) => (
+        <Food food={food} key={food._id.toString()} />
       ))}
     </div>
-    // issue most like in key={post.id} matching!!
   );
 };
 
-export default JsonAPI;
+export default MenuAPI;
