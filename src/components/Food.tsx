@@ -13,10 +13,19 @@ type FoodProps = {
 const Food = ({ food }: FoodProps) => {
   return (
       <div className='food-box'>
-          <table>
+         <div className='foodpic'>
+         <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${food.image}`} alt={`${food.food_name}`} className='img-responsive img-curve' height="auto" width="150px"/>
+         </div>
+      </div>
+  );
+};
+
+export default Food;
+
+{/* <table>
               <thead>
                   <tr>
-                      <th colSpan={3}>{food.food_id} - {food.food_name}</th>
+                      <th colSpan={3}>{food.food_name}</th>
                   </tr>
               </thead>
               <tbody>
@@ -28,9 +37,4 @@ const Food = ({ food }: FoodProps) => {
                       <td className="right">Price: ${food.price}</td>
                   </tr>
               </tbody>
-          </table>
-      </div>
-  );
-};
-
-export default Food;
+          </table> */}

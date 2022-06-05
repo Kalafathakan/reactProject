@@ -3,91 +3,74 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
  
-const Register = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
-  });
- 
-  const { name, email, password, password2 } = formData;
- 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
- 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
- 
-    let config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
- 
-    let data = {
-      name: name,
-      email: email,
-      password: password,
-    };
- 
-    try {
-      const response = await axios.post(
-        'http://localhost:5000/api/user',
-        data,
-        config
-      );
-      localStorage.setItem('token', response.data.token);
- 
-      let decodeddata = decode(response.data.token);
-      console.log(decodeddata);
-    } catch (e) {
-      console.log('error ', e);
+type Props = {}
+
+const Register = (props: Props) => {
+
+
+  const [emailFromForm, setEmail] = useState("");
+
+  const [passwordFromForm, setPassword] = useState("");
+
+  const handleChangeForEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
+    setEmail(e.target.value);
+};
+
+const handleChangeForPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e);
+  setPassword(e.target.value);
+};
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //by default it will submit the form, so prevent
+  e.preventDefault();
+ sendPostRequest();
+ // setEmail('')
+  //setPassword('')
+};
+
+const sendPostRequest = async () => {
+  try {
+    const response = await axios.post(
+      'https://shielded-depths-40144.herokuapp.com/registration',
+      {email:emailFromForm,
+        password: passwordFromForm
+      }
+    );
+
+    console.log(response);
+    if(response.status.toString() === "201"){
+      console.log("you signup successfully")
     }
-  };
+  } catch (err) {
+    console.log(err);
+  }
+};
   return (
     <>
       <h1>Sign Up</h1>
       <p>Create Your Account</p>
-      <form onSubmit={(e) => onSubmit(e)}>
+      <form onSubmit={handleSubmit}>
+        
         <div>
-          <input
-            type='text'
-            placeholder='Name'
-            name='name'
-            value={name}
-            onChange={(e) => onChange(e)}
-            required
-          />
+        <input 
+        type="email"
+         className="form-control" 
+         value={emailFromForm} 
+         onChange={handleChangeForEmail} 
+         id="validationCustomUsername" 
+         aria-describedby="inputGroupPrepend" required />
+
         </div>
         <div>
-          <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div>
-          <input
-            type='password'
-            placeholder='Password'
-            name='password'
-            
-            value={password}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div>
-          <input
-            type='password'
-            placeholder='Confirm Password'
-            name='password2'
-            value={password2}
-            onChange={(e) => onChange(e)}
-      
-          />
+        <input 
+        type="password" 
+        value={passwordFromForm} 
+        onChange={handleChangeForPassword} 
+        className="form-control" 
+        id="validationCustom03" required />
+
         </div>
         <input type='submit' value='Register' />
       </form>
