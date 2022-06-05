@@ -30,6 +30,7 @@ const Login = () => {
     };
  
     try {
+      console.log(data)
       const response = await axios.post(
         'https://shielded-depths-40144.herokuapp.com/login',
         data,
