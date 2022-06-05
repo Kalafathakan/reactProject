@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { decode } from 'punycode';
+import decode from 'jwt-decode';
  
 const Login = () => {
   //state variables for form data
@@ -31,7 +31,7 @@ const Login = () => {
  
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth',
+        'https://shielded-depths-40144.herokuapp.com/login',
         data,
         config
       );
@@ -39,7 +39,7 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       console.log(decode(response.data.token));
     } catch (e) {
-      
+        
     }
   };
  
