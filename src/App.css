@@ -195,6 +195,10 @@ button {
   background-color: #111;
 }
 
+.active {
+  background-color: #04aa6d;
+}
+
 
 /* COMPONENT STYLES -------------------- */
 
@@ -209,118 +213,14 @@ button {
   width: 80%;
   margin: 30px auto;
 }
-.grocery {
-  display: flex;
-  font-size: 1.2em;
-  border-bottom: solid 2px #eeeeee;
-  letter-spacing: 2px;
-  width: 80%;
-  margin: 30px auto;
-}
 
-.grocery:last-of-type {
-  border-bottom-color: #d4caff;
-}
-
-.grocery-name:hover .remove-grocery {
-  visibility: visible;
-}
-
-.grocery-name,
-.counter-items {
-  color: #2f2366;
-}
-
-.grocery-name {
-  flex-grow: 1;
-  line-height: 3.5em;
-  padding-left: 10px;
-}
-
-.remove-grocery {
-  font-size: 1.15em;
-  border: none;
-  outline: none;
-  visibility: hidden;
-  color: #ef5350;
-  cursor: pointer;
-  margin: 0 10px 0 0;
-  padding: 0;
-  background: none;
-}
-
-.counter {
-  display: flex;
-  width: 190px;
-}
-
-.counter-action {
-  border: none;
-  font-size: 1.15em;
-  font-weight: bold;
-  color: #b0aeba;
-  background-color: #dcdcdc;
-  display: block;
-  padding: 20px 20px;
-  cursor: pointer;
-  outline: none;
-}
-
-.counter-action:hover {
-  color: #fff;
-}
-
-.increment:hover {
-  background: #83d97c;
-}
-
-.decrement:hover {
-  background: #ef5350;
-}
-
-.counter-items {
-  flex-grow: 1;
-  text-align: center;
-  font-family: monospace;
-  font-size: 2em;
-  line-height: 2em;
-}
 
 .page-style {
-  min-height: 300px;
+  min-height: calc(100vh - 250px);
   width: 80%;
   margin: 30px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 table {
   border: 1px solid black;
@@ -352,4 +252,53 @@ button {
   justify-content: center;
   font-size: calc(5px + 2vmin);
   color: white;
+}
+
+
+.menu-nav {
+  text-transform: uppercase;
+}
+
+.food-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.img-curve {
+  border-radius: 15px;
+}
+
+.food-box {
+  width: 32%;
+  margin: 0.2%;
+  padding: 1%;
+  float: left;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.food-img {
+  width: 20%;
+  float: left;
+}
+
+.food-details {
+  width: 70%;
+  float: left;
+  margin-left: 5%;
+}
+
+.food-price {
+  font-size: 1.2rem;
+  margin: 2% 0;
+}
+
+.food-desc {
+  font-size: 0.8rem;
+  color: #3f454e;
+  line-height: 1;
 }
