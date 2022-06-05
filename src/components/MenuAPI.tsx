@@ -100,15 +100,19 @@ const MenuAPI = () => {
 
   return (
     <div>
-      <button onClick={sendPostRequest}>Add Food</button>
-      <button onClick={sendPutRequest}>Update Food</button>
-      <button onClick={sendDeleteRequest}>Delete Food</button>
+      <div className="center">
+        <button onClick={sendPostRequest}>Add Food</button>
+        <button onClick={sendPutRequest}>Update Food</button>
+        <button onClick={sendDeleteRequest}>Delete Food</button>
+      </div>
+      <br></br>
       <div className="food-items">
         {foods.map((food) => (
           <Food food={food} key={food._id.toString()} />
         ))}
       </div>
     </div>
+
   );
 };
 
