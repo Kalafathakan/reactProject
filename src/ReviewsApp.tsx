@@ -5,12 +5,12 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 //importing the components for the header and the tasks
-import CustomerReviews from '../components/CustomerReviews';
-import AddReviewForm from '../components/AddReviewForm';
-import SearchRating from '../components/SearchRating';
+import CustomerReviews from './components/CustomerReviews';
+import AddReviewForm from './components/AddReviewForm';
+import Search from './components/SearchRating';
 
 //importing the css involved with the app
-import '../App.css';
+import './App.css';
 
 //declaring ReviewsListProps properties as an array
 type ReviewListProps = {
@@ -20,7 +20,7 @@ type ReviewListProps = {
     id: string;
 }[];
 
-const Reviews = () => {
+const App = () => {
     const [search, setSearch] = useState('');
     const [reviewsList, setReviewsList] = useState<ReviewListProps>([
         {
@@ -38,19 +38,19 @@ const Reviews = () => {
         {
             name: 'Vishnu',
             rating: '4.5',
-            review: 'The right amount of food for the price',
+            review: 'Task 1',
             id: "3",
         },
         {
             name: 'Zafer',
             rating: '4.5',
-            review: 'Finished my meal and wanted more from it being so good',
+            review: 'Task 1',
             id: "4",
         },
         {
             name: 'Oreolewa',
             rating: '4',
-            review: 'Would recommend to everyone',
+            review: 'Task 1',
             id: "5",
         }
     ]);
@@ -74,9 +74,9 @@ const Reviews = () => {
 
     //displaying everyone in the app to user
     return (
-        <div className='page-style'>
+        <div>
             <AddReviewForm onAdd={handleAddReview} />
-            <SearchRating filterRating={filterReviews} />
+            <Search filterRating={filterReviews} />
             {reviewsList
                 .filter((rl) => rl.rating.toLowerCase().includes(search.toLowerCase()))
                 .map((rl) => (
@@ -94,5 +94,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
-
+export default App;

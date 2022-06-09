@@ -236,6 +236,12 @@ img {
   height: fit-content;
 }
 
+textarea {
+  width:95%;
+  height: 50px;
+  resize: none;
+}
+
 .center {
   text-align: center;
 }
@@ -252,7 +258,6 @@ button {
   font-size: calc(5px + 2vmin);
   color: white;
 }
-
 
 .menu-nav {
   text-transform: uppercase;
@@ -300,4 +305,12 @@ button {
   font-size: 0.8rem;
   color: #3f454e;
   line-height: 1;
+}
+
+.reviews-form {
+  font-size: calc(5px + 3vmin);
+}
+
+.reviews-list {
+  font-size: calc(5px + 3.5vmin);
 }
