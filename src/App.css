@@ -239,7 +239,7 @@ img {
 textarea {
   width:95%;
   height: 50px;
-  resize: none;
+  resize: vertical;
 }
 
 .center {
