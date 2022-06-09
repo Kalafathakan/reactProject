@@ -125,8 +125,8 @@ const AddReviewForm = (props: AddProps) => {
           <textarea
             value={review}
             onChange={handleReviewChange}
-            placeholder='Enter your Review (453 characters max)'
-            maxLength={453}
+            placeholder='Enter your Review (459 characters max)'
+            maxLength={459}
             required
           />
           <br></br>
