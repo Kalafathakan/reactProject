@@ -1,0 +1,11 @@
+.div-img {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    border-color: #282d32;
+    border-style: groove;
+    border-radius: 7%;
+}
