@@ -14,6 +14,8 @@
 
 ### `npm install @mui/icons-material`
 
+### `npm install --save @types/react-calendar`
+
 ## Phase 1 Task List
 
 Zafer Hakan Kalafat / N01468413:
