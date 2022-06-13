@@ -13,7 +13,7 @@ const Deals = (props: Props) => {
     <div className='page-style'>
       <div className='div-img'>
         <h1>Deals & Promotions</h1>
-        <img src={require('../images/dealsAndPromotions.jpeg')}></img>
+        <img id='deals-img' src={require('../images/dealsAndPromotions.jpeg')}></img>
       </div>
     </div>
   );
