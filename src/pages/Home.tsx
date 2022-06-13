@@ -10,14 +10,7 @@ const Home = () => {
   return (
     
       <div className='page-style'>
-        <h2>Home</h2><hr></hr>
-        <div id='homeroutes'>
-          <Navigation />
-          <Routes>
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-          </Routes>
-        </div>
+        <h1>Home</h1>
         <div id='homeInfo'>
           <h3>Address</h3>
           <p>205 Humber College Blvd, Etobicoke, ON M9W 6V3</p>

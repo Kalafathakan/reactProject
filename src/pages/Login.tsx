@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
- 
+
 const Login = () => {
   //state variables for form data
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
- 
+
   const { email, password } = formData;
- 
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
- 
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
- 
+
     let config = {
       headers: {
         'Content-Type': 'application/json',
       },
     };
- 
+
     let data = {
       email: email,
       password: password,
     };
- 
+
     try {
       console.log(data)
       const response = await axios.post(
@@ -40,42 +40,44 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       console.log(decode(response.data.token));
     } catch (e) {
-        
+
     }
   };
- 
+
   return (
-    <>
+    <div>
       <h1>Sign In</h1>
-      <p>Sign Into Your Account</p>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <div>
-          <input
-            type='email'
-            placeholder='Email Address'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div>
-          <input
-            type='password'
-            placeholder='Password'
-            name='password'
-            
-            value={password}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
- 
-        <input type='submit' value='Login' />
-      </form>
-      <p>
-        <Link to='/register'>Register</Link>
-      </p>
-    </>
+      <div className="center">
+        <p><b>Sign into your account</b></p>
+        <form className="loginBox" onSubmit={(e) => onSubmit(e)}>
+          <div>
+            <input
+              type='email'
+              placeholder='Email Address'
+              name='email'
+              value={email}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+          <div>
+            <input
+              type='password'
+              placeholder='Password'
+              name='password'
+
+              value={password}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+
+          <input type='submit' value='Login' />
+        </form>
+        <p>
+          Don't have an account? <Link to='/register'>Sign up now!</Link>
+        </p>
+      </div>
+    </div>
   );
 };
- 
+
 export default Login;

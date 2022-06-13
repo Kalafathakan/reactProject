@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Kdam+Thmor+Pro&display=swap');
+
 .App {
   text-align: center;
 }
@@ -41,7 +43,7 @@ button {
 .footer-dark {
   padding: 50px 0;
   color: #f0f9ff;
-  background-color: #282d32;
+  background-color: #143455;
 }
 
 .footer-dark h3 {
@@ -123,7 +125,6 @@ button {
 
 .footer-dark .copyright {
   text-align: center;
-  padding-top: 24px;
   opacity: 0.3;
   font-size: 13px;
   margin-bottom: 0;
@@ -135,19 +136,12 @@ button {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #282d32;
 }
 
-#homeInfo {
-  margin-top: 120px;
+#dashboard a {
+  color: white !important;
 }
 
-#homeroutes {
-  list-style-type: none;
-  margin-top: -95px;
-  margin-left: 30px;
-
-}
 
 .footer-dark #homeroutes {
   padding: 0;
@@ -211,32 +205,32 @@ button {
 
 
 .navbar {
-  margin: 27px auto 0;
+	margin: 27px auto 0;
   padding-left: 10px;
-  position: relative;
-  width: 640px;
-  height: 50px;
-  background-color: #34495e;
-  border-radius: 8px;
-  font-size: 0;
+	position: relative;
+	background-color: #274e76;
+	border-radius: 8px;
+	font-size: 0;
+  width: 65%;
 }
 
 .navbarsection a:hover:not(.active) {
-  background-color: rgb(231, 218, 218);
+  background-color: rgb(35, 35, 35);
 }
 
 .navbar .navbarsection {
   line-height: 50px;
   height: 100%;
-  font-size: 15px;
+  font-size: 16px;
   display: inline-block;
   position: relative;
   z-index: 1;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-align: center;
   color: white;
   cursor: pointer;
+  font-family: Kdam Thmor Pro;
 }
 
 .navbar .animation {
@@ -248,35 +242,13 @@ button {
   border-radius: 8px;
 }
 
-.navbarsection:nth-child(1) {
-  width: 100px;
-}
-
-.navbarsection:nth-child(2) {
-  width: 100px;
-}
-
-.navbarsection:nth-child(3) {
-  width: 100px;
-}
-
-.navbarsection:nth-child(4) {
-  width: 100px;
-}
-
-.navbarsection:nth-child(5) {
-  width: 100px;
-}
-
-.navbarsection:nth-child(6) {
-  width: 120px;
-}
 
 #navsec a {
   display: block;
   color: white;
   text-align: center;
   text-decoration: none;
+  padding: 0 20px 0 20px;
 }
 
 #navsec a::after {
@@ -309,7 +281,7 @@ h1 {
   text-align: center;
   font-size: 30px;
   color: #e77510;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 1px 1px 2px #000000;
   font-family: 'Cherry Swash', cursive;
 }
 
@@ -376,7 +348,6 @@ button {
   background-color: #282c34;
   align-items: center;
   justify-content: center;
-  font-size: calc(5px + 2vmin);
   color: white;
 }
 
@@ -392,6 +363,8 @@ button {
 .persons {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .person {
@@ -437,6 +410,7 @@ button {
   margin-left: 5%;
 }
 
+
 .food-price {
   font-size: 1.2rem;
   margin: 2% 0;
@@ -448,10 +422,73 @@ button {
   line-height: 1;
 }
 
+@media only screen and (max-width: 40em) {
+  .food-img {
+      float: none;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+}
+
+@media only screen and (max-width: 1000px) {
+  .food-box {
+      width: 90%;
+      padding: 2%;
+      margin-bottom: 0.5%;
+  }
+
+}
+
 .reviews-form {
   font-size: calc(5px + 3vmin);
 }
 
 .reviews-list {
   font-size: calc(5px + 3.5vmin);
+}
+
+.loginBox {
+    background-color: white;
+    padding: 20px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px groove;
+    box-shadow: 1px 1px 2px #000;
+}
+
+.loginBox input {
+  padding: 5px;
+  margin: 5px;
+  width: 85%;
+}
+
+.footer-nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.group-box {
+  text-align: center;
+}
+
+.group-box ul {
+  list-style: none;
+  display: inline-flex;
+}
+
+.group-box li {
+  padding: 10px;
+}
+
+.order-table th {
+  background-color: #367bc1;
+  color: white;
+}
+
+.order-table td {
+  text-align: center;
 }

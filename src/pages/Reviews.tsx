@@ -48,7 +48,7 @@ const Reviews = () => {
             id: "4",
         },
         {
-            name: 'Oreolewa',
+            name: 'Oreoluwa',
             rating: '4',
             review: 'Would recommend to everyone',
             id: "5",

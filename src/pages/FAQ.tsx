@@ -12,9 +12,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 type Props = {};
 
-const About = (props: Props) => {
+const FAQ = (props: Props) => {
   return (
     <><div>
+      <h1>
+        Frequently Asked Questions
+      </h1>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -39,7 +42,7 @@ const About = (props: Props) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            We do take reservations and 15 minutes wait time until you arrive otherwise we have to forfeit your seat to other customers. 
+            We do take reservations and 15 minutes wait time until you arrive otherwise we have to forfeit your seat to other customers.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -58,15 +61,15 @@ const About = (props: Props) => {
         </AccordionDetails>
       </Accordion>
     </div><p>Please feel free to send an email if you have any further questions</p>
-    <ul id='dashboard'>
+      <ul id='dashboard'>
         <li id='sections'>
-        <a id='email' href="mailto:kalafatzaferhakan@gmail.com">Send Email</a>
+          <a id='email' href="mailto:kalafatzaferhakan@gmail.com">Send Email</a>
         </li>
-        
+
       </ul>
     </>
-    
+
   );
 };
 
-export default About;
+export default FAQ;

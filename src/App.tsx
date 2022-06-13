@@ -6,7 +6,9 @@ import Bookings from './pages/Bookings';
 import About from './pages/About';
 import Footer from './pages/Footer';
 import Navigation from './pages/Navigation';
-import Order from './pages/Order';
+import Orders from './pages/Orders';
+import Reviews from './pages/Reviews';
+import Deals from './pages/Deals';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -22,8 +24,10 @@ const App = () => {
             <Route path='menu' element={<Menu />} />
             <Route path='bookings' element={<Bookings />} />
             <Route path='thankyou' element={<Thankyou />} />
-            <Route path='order' element={<Order />} />
+            <Route path='orders' element={<Orders />} />
+            <Route path='reviews' element={<Reviews />} />
             <Route path='about' element={<About />} />
+            <Route path='deals' element={<Deals />} />
             <Route path='contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
