@@ -10,6 +10,7 @@ import Order from './pages/Order';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Thankyou from './pages/Thankyou';
 
 const App = () => {
   
@@ -20,6 +21,7 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='menu' element={<Menu />} />
             <Route path='bookings' element={<Bookings />} />
+            <Route path='thankyou' element={<Thankyou />} />
             <Route path='order' element={<Order />} />
             <Route path='about' element={<About />} />
             <Route path='contact' element={<Contact />} />
