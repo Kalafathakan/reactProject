@@ -32,8 +32,6 @@ Oreoluwa Lawal / N01452264:
 
 -Contact Page
 
--Subscription to newsletter Page
-
 Guray Demirezen / N01451141:
 
 -Registration Page
