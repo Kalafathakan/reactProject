@@ -4,6 +4,7 @@ import Navigation from './FooterNavigation';
 import FAQ from './FAQ';
 import Reviews from './Reviews';
 import Deals from './Deals';
+import Subscribe from './Subscribe';
 
 const Footer = () => {
   return (
@@ -18,6 +19,7 @@ const Footer = () => {
                 <Route path='/faq' element={<FAQ />} />
                 <Route path='/reviews' element={<Reviews />} />
                 <Route path='/deals' element={<Deals />} />
+                <Route path='/subscribe' element={<Subscribe />} />
               </Routes>
             </div>
             <div className='col-md-6 item text'><br></br>

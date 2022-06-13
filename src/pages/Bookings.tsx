@@ -11,7 +11,6 @@ type Props = {
 
 const Bookings = () => {
   let navigate = useNavigate()
-  const params = useParams();
   const [date, setDate] = useState(new Date())
   const [timeSelected, setTimeSelected] = useState('12pm')
 

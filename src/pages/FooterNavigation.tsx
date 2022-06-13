@@ -13,6 +13,9 @@ const Navigation = () => {
         <li id='sections'>
           <h3><NavLink to='/deals'>Deals & Promotions</NavLink></h3>
         </li>
+        <li id='sections'>
+          <h3><NavLink to='/subscribe'>Subscribe to our Newsletter</NavLink></h3>
+        </li>
       </ul>
     </nav>
   );
