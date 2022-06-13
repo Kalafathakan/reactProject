@@ -127,8 +127,10 @@ button {
   text-align: center;
   opacity: 0.3;
   font-size: 13px;
-  margin-bottom: 0;
+  margin-bottom: 150px;
 }
+
+
 
 #dashboard {
   list-style-type: none;
@@ -212,6 +214,7 @@ button {
 	border-radius: 8px;
 	font-size: 0;
   width: 65%;
+  margin-bottom: 25px;
 }
 
 .navbarsection a:hover:not(.active) {
@@ -437,11 +440,11 @@ button {
 }
 
 .reviews-form {
-  font-size: calc(5px + 3vmin);
+  font-size: calc(5px + 2vmin);
 }
 
 .reviews-list {
-  font-size: calc(5px + 3.5vmin);
+  font-size: calc(5px + 1.8vmin);
 }
 
 .loginBox {
