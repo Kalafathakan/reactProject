@@ -386,7 +386,7 @@ button {
 }
 
 .food-box {
-  width: 32%;
+  width: 45%;
   margin: 0.2%;
   padding: 1%;
   float: left;
@@ -395,7 +395,7 @@ button {
 }
 
 .food-img {
-  width: 45%;
+  width: 20%;
   float: left;
 }
 
