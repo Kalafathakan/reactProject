@@ -14,6 +14,9 @@ const Navigation = () => {
           <NavLink to='/menu'>Menu</NavLink>
         </a>
         <a id='navsec' className='navbarsection'>
+          <NavLink to='/cart'>Cart</NavLink>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/orders'>Orders</NavLink>
         </a>
         <a id='navsec' className='navbarsection'>
