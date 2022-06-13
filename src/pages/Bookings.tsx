@@ -14,6 +14,8 @@ const Bookings = () => {
   const params = useParams();
   const [date, setDate] = useState(new Date())
   const [timeSelected, setTimeSelected] = useState('12pm')
+
+  //Set time slots for booking time
   const [timeSlot, setTimeSlot] = useState<Props>([{
     time: "12pm"
   },
@@ -34,14 +36,17 @@ const Bookings = () => {
   },
   ])
  
+  //update date when user clicks on the calender date
   const changedDate = (d: SetStateAction<Date>) => {
     setDate(d)
   }
 
+  //update time slot selected by user
   const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setTimeSelected(e.target.value)
   }
 
+  //navigate to thank you page after booking
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("../thankyou", { replace: true });
@@ -50,11 +55,10 @@ const Bookings = () => {
     <div className='container-info'>
       <h1>Reserve a seat today!</h1>
       <div className='row-info'>
-        
-
         <div className='col-info'>
 
           <h2>Select date</h2>
+          {/* display calender */}
           <Calendar
             onChange={changedDate}
             value={date}
@@ -72,10 +76,15 @@ const Bookings = () => {
             <p>You have selected {timeSelected}</p>
           </div>
         </div>
+
+        {/* form to collect user booking details */}
         <div className='col-info'>
           <form id="form-info" onSubmit={handleSubmit}>
             <fieldset style={{ padding: "20px" }}>
               <legend>Your Info</legend>
+              <input type="hidden" className="form-control" id="date-info"  />
+              <input type="hidden" className="form-control" id="time-info" />
+              
               <div className="form-group">
                 <label>Name</label><br/>
                 <input type="text" className="form-control" id="name-info" placeholder="Enter name" />
