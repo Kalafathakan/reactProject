@@ -2,8 +2,11 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <nav className='navbar'>
-      
+    <div>
+      <div className="logo">
+        <img id='logo-img' src={require('../images/logo.png')} width="250px"></img>
+      </div>
+      <nav className='navbar'>
         <a id='navsec' className='navbarsection'>
           <NavLink to='/'>Home</NavLink>
         </a>
@@ -31,7 +34,8 @@ const Navigation = () => {
         <a id='navsec' className='navbarsection'>
           <NavLink to='/login'>Login</NavLink>
         </a>
-    </nav>
+      </nav>
+    </div>
   );
 };
 export default Navigation;

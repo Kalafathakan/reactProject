@@ -1,10 +1,3 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navigation from './HomeNavigation';
-import Register from './Register';
-import Login from './Login';
-
-
 const Home = () => {
 
   return (
