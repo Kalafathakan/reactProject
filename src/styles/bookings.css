@@ -1,5 +1,5 @@
 #form-info {
-    background-color: rgb(181, 148, 148);
+    background-color: rgb(133, 132, 132);
     border-radius: 10px;
     height: 100%;
 
@@ -10,7 +10,7 @@
 }
 
 .select-input {
-    background-color: cadetblue;
+    background-color: rgb(133, 132, 132);
     padding: 20px;
     border-radius: 10px;
 }
