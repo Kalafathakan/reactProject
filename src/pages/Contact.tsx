@@ -11,26 +11,27 @@ const Contact = (props: Props) => {
     navigate('/');
   };
   return (
-    <div className="container-form">
+    <div className="contact-form">
       <div className="t-a">
-        <h2>Contact Us</h2>
-        <p>Swing by for a cup of coffee, or feel free to leave us a message:</p>
+        <h1>Contact Us</h1>
+        <p>Send us your message and we will get back to you as soon as possible</p>
+        <hr/>
       </div>
-      <div className="row-form">
-        <div className="column-form">
+      <div className="contactrow-form">
+        <div className="col-form">
           <img id="contact-img" src={require('../images/res.jpeg')} />
         </div>
-        <div className="column-form">
+        <div className="col-form">
           <form>
-            <label htmlFor="fname">First Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name.." />
-            <label htmlFor="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email.." />
-            <label htmlFor="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." ></textarea>
-            <input type="submit" value="Submit" />
+            <label>First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter first name" />
+            <label>Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Enter last name" />
+            <label>Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" />
+            <label>Subject</label>
+            <textarea id="email-subject" name="subject" placeholder="Write your message" ></textarea>
+            <input id="submit" type="submit" value="Submit" />
           </form>
         </div>
       </div>
