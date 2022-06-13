@@ -5,24 +5,31 @@ type QuantityProps = {
   onQuantityChange: (id: String, data: number) => void;
 };
 
-const Quantity = ({ onQuantityChange, id, quantity }: QuantityProps) => {
+const Quantity = (props: QuantityProps) => {
+  const [quan, setQuantity] = useState(props.quantity);
+  // console.log(props);
   return (
     <span className='counter'>
       <button
-        className='counter-action decrement'
-        onClick={() => onQuantityChange(id, 1)}
+        className='counter-action increment'
+        onClick={() => setQuantity(quan + 1)}
       >
         +
       </button>
-      &nbsp;<span className='counter-items'>{quantity}</span>&nbsp;
+      &nbsp;<span className='counter-items'>{quan}</span>&nbsp;
       <button
-        className='counter-action increment'
-        onClick={() => onQuantityChange(id, -1)}
+        className='counter-action decrement'
+        onClick={() =>
+          setQuantity((prev) => {
+            return prev > 0 ? prev - 1 : 0;
+          })
+        }
       >
         -
       </button>
     </span>
   );
 };
+
 
 export default Quantity;

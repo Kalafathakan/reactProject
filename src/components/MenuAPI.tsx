@@ -95,25 +95,6 @@ const MenuAPI = () => {
     }
   };
 
-  const handleQuantityChange = (id: string, data: number) => {
-    setFoods((currentUpdatedState) =>
-      currentUpdatedState.map((g) =>
-        g.food_id === id
-          ? {
-              ...g,
-              quantity:
-                data > 0
-                  ? g.quantity + data
-                  : g.quantity > 0
-                  ? g.quantity + data
-                  : 0,
-            }
-          : g
-      )
-    );
-  };
-
-
   useEffect(() => {
     fetch('https://shielded-depths-40144.herokuapp.com/foods')
       .then((response) => response.json())
