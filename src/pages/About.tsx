@@ -8,7 +8,7 @@ const About = (props: Props) => {
     <div className='page-style'>
       <h1>About Us</h1>
       <div className="center">
-        <p>The Development Team</p>
+        <p><b>The Development Team</b></p>
         <br></br>
         <div className="persons">
 

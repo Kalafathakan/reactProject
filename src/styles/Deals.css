@@ -8,4 +8,6 @@
     border-color: #282d32;
     border-style: groove;
     border-radius: 7%;
+    width: auto;
+    max-width: 500px;
 }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Vishnu's part for Search Engine
 
 type SearchProps = {
-  filterMenu:(title: string) => void
+  filterMenu:(name: string) => void
 }
 
 const Search = (props: SearchProps) => {
@@ -15,11 +15,11 @@ const Search = (props: SearchProps) => {
     props.filterMenu(e.target.value);
   };
   return (
-    <div id="searchbar">
-      Search: 
+    <div id="menu-searchbar">
+      <b>Search: </b>
       <input
         type='text'
-        placeholder='search'
+        placeholder='Search for food'
         value={searchTerm}
         onChange={handleChange}
       />

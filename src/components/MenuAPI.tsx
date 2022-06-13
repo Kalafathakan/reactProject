@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Food from "./Food";
+import Search from "./Search";
 
 type MenuType = {
   _id: String,
@@ -10,10 +11,13 @@ type MenuType = {
   description: String,
   category: String,
   active: String,
-  image: String
+  image: String,
+  quantity: number
+  onQuantityChange: (id: String, data: number) => void;
 };
 
 const MenuAPI = () => {
+  const [search, setSearch] = useState('');
   const [foods, setFoods] = useState<MenuType[]>([]);
 
   const sendGetRequest = async () => {
@@ -81,6 +85,35 @@ const MenuAPI = () => {
       console.log(err);
     }
   };
+
+  // Search for food by name
+  const filterMenu = (name: string) => {
+    if (name) {
+      setSearch(name);
+    } else {
+      setSearch('');
+    }
+  };
+
+  const handleQuantityChange = (id: string, data: number) => {
+    setFoods((currentUpdatedState) =>
+      currentUpdatedState.map((g) =>
+        g.food_id === id
+          ? {
+              ...g,
+              quantity:
+                data > 0
+                  ? g.quantity + data
+                  : g.quantity > 0
+                  ? g.quantity + data
+                  : 0,
+            }
+          : g
+      )
+    );
+  };
+
+
   useEffect(() => {
     fetch('https://shielded-depths-40144.herokuapp.com/foods')
       .then((response) => response.json())
@@ -100,40 +133,46 @@ const MenuAPI = () => {
 
   return (
     <div>
-      {/*}
+      {/* These will be in the admin page instead }
       <div className="center">
         <button onClick={sendPostRequest}>Add Food</button>
         <button onClick={sendPutRequest}>Update Food</button>
         <button onClick={sendDeleteRequest}>Delete Food</button>
       </div>      
       <br></br>*/}
+      <Search filterMenu={filterMenu} />
       <h2>Starters</h2>
       <div className="food-items">
-        {foods.map((food) => (
+        {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
+        .map((food) => (
           (food.category == "Starters") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
       <h2>Mains</h2>
       <div className="food-items">
-        {foods.map((food) => (
+        {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
+        .map((food) => (
           (food.category == "Mains") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
       <h2>Curries</h2>
       <div className="food-items">
-        {foods.map((food) => (
+        {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
+        .map((food) => (
           (food.category == "Curries") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
       <h2>Desserts</h2>
       <div className="food-items">
-        {foods.map((food) => (
+        {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
+        .map((food) => (
           (food.category == "Desserts") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
       <h2>Beverages</h2>
       <div className="food-items">
-        {foods.map((food) => (
+        {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
+        .map((food) => (
           (food.category == "Beverages") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
