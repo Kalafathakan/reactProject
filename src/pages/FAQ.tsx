@@ -1,25 +1,71 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+// npm install @mui/material @mui/styled-engine-sc styled-components
+// npm install @mui/icons-material
+
 type Props = {};
 
 const About = (props: Props) => {
-  // const navigate = useNavigate();
-  // const handleClick = () => {
-  //   navigate('/');
-  // };
   return (
-    <div className='page-style'>
-      <h1>Frequently asked questions</h1>
-      <p>Question 1</p><br></br>
-      <p>Question 2</p>
-      <p>add javascript functions when question clicked drop down the answer</p>
-      <br></br>
-      <p>Please feel free to send an email if you have any further questions</p>
-      <a href = "mailto:kalafatzaferhakan@gmail.com">Send Email</a>
-      <br></br><hr></hr>
-      <p>maybe add buttons for handling routers comes in your mind or links. you can use the handler commented above the code</p>
-    </div>
+    <><div>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Are you open on holidays?</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            We are open for service during any holiday except New Years.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Do you take reservations?</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            We do take reservations and 15 minutes wait time until you arrive otherwise we have to forfeit your seat to other customers. 
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Can we bring our own cake / wine for birthdays or celebrations?</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Yes, you may bring it however we do have additional fees for service.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </div><p>Please feel free to send an email if you have any further questions</p>
+    <ul id='dashboard'>
+        <li id='sections'>
+        <a id='email' href="mailto:kalafatzaferhakan@gmail.com">Send Email</a>
+        </li>
+        
+      </ul>
+    </>
+    
   );
 };
 

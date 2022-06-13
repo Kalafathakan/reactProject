@@ -2,27 +2,27 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <nav>
-      <ul id='dashboard'>
-        <li id='sections'>
+    <nav className='navbar'>
+      
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/'>Home</NavLink>
-        </li>
-        <li id='sections'>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/menu'>Menu</NavLink>
-        </li>
-        <li id='sections'>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/bookings'>Bookings</NavLink>
-        </li>
-        <li id='sections'>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/order'>Order</NavLink>
-        </li>
-        <li id='sections'>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/about'>About</NavLink>
-        </li>
-        <li id='sections'>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/contact'>Contact Us</NavLink>
-        </li>
-      </ul>
+        </a>
+      
     </nav>
   );
 };

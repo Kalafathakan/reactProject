@@ -130,10 +130,15 @@ button {
 
 #dashboard {
   list-style-type: none;
+  text-align: center;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #282d32;
+}
+
+#homeInfo{
+  margin-top: 120px;
 }
 
 #homeroutes {
@@ -178,6 +183,7 @@ button {
   text-decoration: none;
 }
 
+
 #sections {
   float: left;
 }
@@ -195,9 +201,12 @@ button {
 }
 
 .active {
-  background-color: #04aa6d;
+  background-color: #3a3a3a;
 }
 
+#email{
+  font-size: 18px;
+}
 
 /* COMPONENT STYLES -------------------- */
 
@@ -313,4 +322,101 @@ button {
 
 .reviews-list {
   font-size: calc(5px + 3.5vmin);
+}
+
+.navbar {
+	margin: 27px auto 0;
+  padding-left: 10px;
+	position: relative;
+	width: 640px;
+	height: 50px;
+	background-color: #34495e;
+	border-radius: 8px;
+	font-size: 0;
+}
+.navbarsection a:hover:not(.active) {
+  background-color: rgb(231, 218, 218);
+}
+
+.navbar .navbarsection {
+	line-height: 50px;
+	height: 100%;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+.navbar .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+.navbarsection:nth-child(1) {
+	width: 100px;
+}
+.navbarsection:nth-child(2) {
+	width: 100px;
+}
+.navbarsection:nth-child(3) {
+	width: 100px;
+}
+.navbarsection:nth-child(4) {
+	width: 100px;
+}
+.navbarsection:nth-child(5) {
+	width: 100px;
+}
+.navbarsection:nth-child(6) {
+	width: 120px;
+}
+
+#navsec a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+#navsec a::after{
+  content: '';
+position: absolute;
+display: block;
+bottom: 0;
+left: 50%;
+width: 0;
+height: 1px;
+border-bottom: 2px solid rgb(255, 0, 0);
+}
+
+#navsec a::after{
+  transition: all 0.2s linear;
+}
+
+#navsec a:hover {
+  color: rgb(255, 0, 0);
+  }
+  
+  #navsec a:hover::after {
+  left: 0;
+  width: 100%;
+  }
+
+
+
+h1 {
+	text-align: center;
+	margin: 40px 0 40px;
+	text-align: center;
+	font-size: 30px;
+	color: #e77510;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
 }

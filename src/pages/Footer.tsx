@@ -12,8 +12,7 @@ const Footer = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-sm-6 col-md-3 item'>
-              <h3>Services</h3>
-
+             
               <Navigation />
               <Routes>
                 <Route path='/faq' element={<FAQ />} />
@@ -40,7 +39,7 @@ const Footer = () => {
               </li>
             </div>
           </div>
-          <p className='copyright'>Kalafat ltd.© 2022</p>
+          <p className='copyright'>Falcons ltd.© 2022</p>
         </div>
       </footer>
     </div>
