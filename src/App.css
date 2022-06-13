@@ -420,12 +420,17 @@ button {
   line-height: 1;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 80em) {
   .food-img {
       float: none;
       width: 50%;
       margin-left: auto;
       margin-right: auto;
+  }
+
+  .logo {
+    float: unset !important;
+    text-align: center;
   }
 
 }

@@ -75,6 +75,7 @@ const Reviews = () => {
     //displaying everyone in the app to user
     return (
         <div className='page-style'>
+            <h1>Reviews</h1>
             <AddReviewForm onAdd={handleAddReview} />
             <SearchRating filterRating={filterReviews} />
             {reviewsList

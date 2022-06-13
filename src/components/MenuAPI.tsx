@@ -100,15 +100,41 @@ const MenuAPI = () => {
 
   return (
     <div>
+      {/*}
       <div className="center">
         <button onClick={sendPostRequest}>Add Food</button>
         <button onClick={sendPutRequest}>Update Food</button>
         <button onClick={sendDeleteRequest}>Delete Food</button>
-      </div>
-      <br></br>
+      </div>      
+      <br></br>*/}
+      <h2>Starters</h2>
       <div className="food-items">
         {foods.map((food) => (
-          <Food food={food} key={food._id.toString()} />
+          (food.category == "Starters") ? <Food food={food} key={food._id.toString()} /> : ""
+        ))}
+      </div>
+      <h2>Mains</h2>
+      <div className="food-items">
+        {foods.map((food) => (
+          (food.category == "Mains") ? <Food food={food} key={food._id.toString()} /> : ""
+        ))}
+      </div>
+      <h2>Curries</h2>
+      <div className="food-items">
+        {foods.map((food) => (
+          (food.category == "Curries") ? <Food food={food} key={food._id.toString()} /> : ""
+        ))}
+      </div>
+      <h2>Desserts</h2>
+      <div className="food-items">
+        {foods.map((food) => (
+          (food.category == "Desserts") ? <Food food={food} key={food._id.toString()} /> : ""
+        ))}
+      </div>
+      <h2>Beverages</h2>
+      <div className="food-items">
+        {foods.map((food) => (
+          (food.category == "Beverages") ? <Food food={food} key={food._id.toString()} /> : ""
         ))}
       </div>
     </div>
