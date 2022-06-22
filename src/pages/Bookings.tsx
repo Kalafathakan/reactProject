@@ -4,6 +4,7 @@ import React, { SetStateAction, useState } from "react"
 
 import '../styles/bookings.css'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 type Props = {
   time: string
@@ -59,7 +60,7 @@ const Bookings = () => {
 
 
   //navigate to thank you page after booking
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     let formValid = true;
@@ -98,7 +99,22 @@ const Bookings = () => {
         email: email,
         phoneno: phoneno,
       }
-      navigate("../thankyou", { replace: true });
+
+      try {
+        const response = await axios.post(
+          'https://shielded-depths-40144.herokuapp.com/bookings',
+          data,
+          config
+        );
+        console.log(response.data);
+        navigate("../thankyou", { replace: true });
+        //localStorage.setItem('token', response.data.token);
+     
+      } catch (err: any) {
+        console.log(err);
+        setError(err.response.data.errors || 'something went wrong');
+      }
+     
     }
   }
   return (

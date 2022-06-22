@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Contact.css'
 import '../images/res.jpeg';
+import axios from 'axios';
 
 type Props = {};
 
@@ -31,7 +32,7 @@ const Contact = (props: Props) => {
   const handleSubjectChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setSubject({ ...subjectData, [e.target.name]: e.target.value })
   //handle event on submit
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     let formValid = true;
@@ -72,6 +73,20 @@ const Contact = (props: Props) => {
         email: email,
         subject: subject,
       };
+      console.log(data)
+      try {
+        const response = await axios.post(
+          'https://shielded-depths-40144.herokuapp.com/contact',
+          data,
+          config
+        );
+        console.log(response.data);
+        //localStorage.setItem('token', response.data.token);
+     
+      } catch (err: any) {
+        console.log(err);
+        setError(err.response.data.errors || 'something went wrong');
+      }
     }
   }
 

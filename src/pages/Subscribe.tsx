@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react'
 import '../styles/subscribe.css'
 
@@ -20,7 +21,7 @@ const Subscribe = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
     //handle event on submit
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         let formValid = true;
@@ -54,20 +55,19 @@ const Subscribe = () => {
                 email: email,
             };
 
-            // try {
-            //     const response = await axios.post(
-            //       'http://localhost:5000/api/auth',
-            //       data,
-            //       config
-            //     );
-            //     console.log(response.data);
-            //     localStorage.setItem('token', response.data.token);
-            //     auth.login();
-            //     navigate('/posts');
-            //   } catch (err: any) {
-            //     console.log(err);
-            //     setError(err.response.data.errors || 'something went wrong');
-            //   }
+            try {
+                const response = await axios.post(
+                  'https://shielded-depths-40144.herokuapp.com/newsletter',
+                  data,
+                  config
+                );
+                console.log(response.data);
+                //localStorage.setItem('token', response.data.token);
+             
+              } catch (err: any) {
+                console.log(err);
+                setError(err.response.data.errors || 'something went wrong');
+              }
         }
     }
     return (
