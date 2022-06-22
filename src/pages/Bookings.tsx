@@ -1,6 +1,6 @@
 import { NavLink, useParams } from 'react-router-dom';
 import Calendar from 'react-calendar'
-import React, { SetStateAction, useState } from "react"
+import React, { SetStateAction, useEffect, useState } from "react"
 
 import '../styles/bookings.css'
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,16 @@ import axios from 'axios';
 type Props = {
   time: string
 }[];
-
+type TimeProps = {
+  time_slot: string
+}[];
+type SlotProps = {
+  date : string,
+  time_slot : string,
+  name: string,
+  email: string,
+  phoneno: string,
+}[];
 const Bookings = () => {
   let navigate = useNavigate()
   const [date, setDate] = useState(new Date())
@@ -45,6 +54,46 @@ const Bookings = () => {
   },
   ])
 
+  const [bookedSlot, setBookedSlot] = useState<SlotProps>([])
+  const [bookedTimeSlot, setBookedTimeSlot] = useState<SlotProps>([])
+  const [result, setResult] = useState<SlotProps>([])
+  const sendGetRequest = async () => {
+    try {
+      const response = await axios.get(
+        'https://shielded-depths-40144.herokuapp.com/bookings'
+      );
+      console.log(response.data);
+      setBookedSlot(response.data)
+      // var date2 = new Date(date.toDateString());
+      // var z = date2.getUTCDate()
+ 
+      // const result = bookedSlot.filter(slot => {
+      //   var date1 = new Date(slot.date);
+      //   var y = date1.getUTCDate()
+      //  if(y === z){
+      //   return slot.time_slot
+      //   }
+      // })
+      // //setBookedTimeSlot(p => [...p, result])
+      // console.log(result[0])
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const check = () => {
+    var date2 = new Date(date.toDateString());
+    var z = date2.getUTCDate()
+    var result = bookedSlot.filter(slot => {
+        var date1 = new Date(slot.date);
+        var y = date1.getUTCDate()
+       if(y === z){
+       return slot
+        }
+      })
+      console.log(result)
+  }
   //update date when user clicks on the calender date
   const changedDate = (d: SetStateAction<Date>) => {
     setDate(d)
@@ -117,6 +166,14 @@ const Bookings = () => {
      
     }
   }
+  useEffect(() => {
+   
+    // axios.get('https://shielded-depths-40144.herokuapp.com/bookings').then((response) => {
+    //   console.log(response);
+    // });
+    sendGetRequest();
+    check();
+  }, []);
   return (
     <div className='container-info'>
       <h1>Reserve a seat today!</h1>
