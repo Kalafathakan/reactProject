@@ -13,6 +13,15 @@ const Bookings = () => {
   let navigate = useNavigate()
   const [date, setDate] = useState(new Date())
   const [timeSelected, setTimeSelected] = useState('12pm')
+  const [formData, setFormData] = useState({
+    fullname: '',
+    email: '',
+    phoneno: '',
+  });
+
+  const { fullname, email, phoneno } = formData;
+  const [fieldError, setFieldError] = useState('');
+  const [error, setError] = useState();
 
   //Set time slots for booking time
   const [timeSlot, setTimeSlot] = useState<Props>([{
@@ -34,7 +43,7 @@ const Bookings = () => {
     time: "10pm"
   },
   ])
- 
+
   //update date when user clicks on the calender date
   const changedDate = (d: SetStateAction<Date>) => {
     setDate(d)
@@ -45,10 +54,52 @@ const Bookings = () => {
     setTimeSelected(e.target.value)
   }
 
+  const onDataChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+
   //navigate to thank you page after booking
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("../thankyou", { replace: true });
+
+    let formValid = true;
+    let emailPattern =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (fullname === '') {
+      formValid = false;
+      setFieldError('Please enter Full Name');
+    } else if (email === '') {
+      formValid = false;
+      setFieldError('Please enter email');
+    } else if (phoneno === '') {
+      formValid = false;
+      setFieldError('Please enter phone number');
+    } else if (!email.match(emailPattern)) {
+      formValid = false;
+      setFieldError('Please enter a valid email');
+    }
+    else {
+      formValid = true;
+      setFieldError('');
+    }
+
+
+    if (formValid) {
+      let config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      let data = {
+        date: date.toDateString(),
+        time_slot: timeSelected,
+        name: fullname,
+        email: email,
+        phoneno: phoneno,
+      }
+      navigate("../thankyou", { replace: true });
+    }
   }
   return (
     <div className='container-info'>
@@ -79,22 +130,46 @@ const Bookings = () => {
         {/* form to collect user booking details */}
         <div className='col-info'>
           <form id="form-info" onSubmit={handleSubmit}>
+
             <fieldset style={{ padding: "20px" }}>
               <legend>Your Info</legend>
-              <input type="hidden" className="form-control" id="date-info"  />
-              <input type="hidden" className="form-control" id="time-info" />
-              
+              {fieldError && <p style={{ color: 'red' }}>{fieldError}</p>}
+              <input type="hidden" className="form-control" id="date-info" value={date.toDateString()} />
+              <input type="hidden" className="form-control" id="time-info" value={timeSelected} />
+
               <div className="form-group">
-                <label>Name</label><br/>
-                <input type="text" className="form-control" id="name-info" placeholder="Enter name" />
+                <label>Name</label><br />
+                <input
+                  name="fullname"
+                  className="form-control"
+                  id="name-info"
+                  placeholder="Enter name"
+                  type="text"
+                  onChange={(e) => onDataChange(e)}
+                  value={fullname}
+                />
               </div>
               <div className="form-group">
-                <label>Email address</label><br/>
-                <input type="email" className="form-control" id="email-info" placeholder="Enter email" />
+                <label>Email address</label><br />
+                <input
+                  name="email"
+                  type="text"
+                  className="form-control"
+                  id="email-info"
+                  placeholder="Enter email"
+                  onChange={(e) => onDataChange(e)}
+                  value={email} />
               </div>
               <div className="form-group">
-                <label>Phone number</label><br/>
-                <input type="tel" className="form-control" id="phoneno-info" placeholder="Phone number" />
+                <label>Phone number</label><br />
+                <input
+                  name="phoneno"
+                  type="text"
+                  className="form-control"
+                  id="phoneno-info"
+                  placeholder="Phone number"
+                  onChange={(e) => onDataChange(e)}
+                  value={phoneno} />
               </div>
               <br />
               <button type="submit" className="btn-info">Book now!</button>

@@ -2,28 +2,80 @@ import { useState } from 'react'
 import '../styles/subscribe.css'
 
 const Subscribe = () => {
-    const [email, setEmail] = useState('')
-    const [firstName, setFirstName] = useState('')
+    //const [email, setEmail] = useState('')
+    // const [firstName, setFirstName] = useState('')
+    const [formData, setFormData] = useState({
+        firstName: '',
+        email: '',
+    });
 
-    //handle event on submit
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const { email, firstName } = formData;
 
-    }
+    const [emailError, setEmailError] = useState('');
+    const [fieldError, setFieldError] = useState('');
+    const [error, setError] = useState();
 
     //update email value
-    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value)
-    }
+    const onDataChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+        setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    //update name value
-    const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFirstName(e.target.value)
+    //handle event on submit
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        let formValid = true;
+        let emailPattern =
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (email === '') {
+            formValid = false;
+            setEmailError('Please enter email');
+        } else if (!email.match(emailPattern)) {
+            formValid = false;
+            setEmailError('Please enter a valid email');
+        } else if (firstName === '') {
+            formValid = false;
+            setFieldError('Please enter first name')
+        }
+        else {
+            formValid = true;
+            setEmailError('');
+        }
+
+
+        if (formValid) {
+            let config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+
+            let data = {
+                first_name: firstName,
+                email: email,
+            };
+
+            // try {
+            //     const response = await axios.post(
+            //       'http://localhost:5000/api/auth',
+            //       data,
+            //       config
+            //     );
+            //     console.log(response.data);
+            //     localStorage.setItem('token', response.data.token);
+            //     auth.login();
+            //     navigate('/posts');
+            //   } catch (err: any) {
+            //     console.log(err);
+            //     setError(err.response.data.errors || 'something went wrong');
+            //   }
+        }
     }
     return (
         <div>
             <h1>
                 Join to Get Updates from us!
             </h1>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <form className="form-sub" onSubmit={handleFormSubmit}>
 
 
@@ -31,23 +83,24 @@ const Subscribe = () => {
                 <label>First Name</label>
                 <br />
                 <input
-                    name="fname"
-                    placeholder="Your first name..."
+                    name="firstName"
+                    placeholder="Your firstname..."
                     type="text"
-                    onChange={handleNameChange}
+                    onChange={(e) => onDataChange(e)}
                     value={firstName}
                 />
+                {fieldError && <span style={{ color: 'red' }}>{fieldError}</span>}
                 <br /><br />
                 <label>Email</label>
                 <br />
                 <input
                     name="email"
                     placeholder="Your email address..."
-                    required
-                    type="email"
-                    onChange={handleEmailChange}
+                    type="text"
+                    onChange={(e) => onDataChange(e)}
                     value={email}
                 />
+                {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
                 <br /><br /><br />
                 <button>Subscribe</button>
                 <br /><br />
