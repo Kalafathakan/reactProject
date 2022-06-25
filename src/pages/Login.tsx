@@ -98,7 +98,7 @@ const Login = () => {
                         value={email}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="email">Email address</label>
-                      <div className="form-text text-danger"> {emailError && <p >{emailError}</p>} </div>
+                      <div className="form-text text-danger"> {emailError && <p style={{ color: 'red' }}  >{emailError}</p>} </div>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="password" className="form-control rounded-4"  placeholder='Password'
@@ -107,7 +107,7 @@ const Login = () => {
               value={password}
               onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Password</label>
-                      <div className="form-text text-danger">{passwordError && <p >{passwordError}</p>}</div>
+                      <div className="form-text text-danger">{passwordError && <p style={{ color: 'red' }} >{passwordError}</p>}</div>
                     </div>
                     <button className="w-50 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign
                       in</button>
