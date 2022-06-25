@@ -80,25 +80,25 @@ const Login = () => {
   };
 
   return (
-    <div className='mybootstrap '>
+    <div className='mybootstrap'>
       <div className="container mt-5 mb-5 w-50  ">
         <div className="modal-lg  mx-auto bg-light bg-opacity-25" >
           <div className="modal-lg-dialog ">
             <div className="modal-content rounded-5 shadow text-center">
               <div className="modal-header  ">
-                <h2 className="mx-auto my-auto mt-5 mb-5  ">Sign in</h2>
+                <h2 className="mx-auto my-auto mt-5 mb-4 ">Sign in</h2>
               </div>
               <h4> {error && <p style={{ color: 'red' }}>{error}</p>}  </h4>
               <div className="modal-body ">
                 <form className="row justify-content-center " onSubmit={(e) => onSubmit(e)} noValidate>
-                  <div className="col-7">
+                  <div className="col-5">
                     <div className="form-floating mb-3">
                       <input type="email" className="form-control rounded-4" placeholder='Email Address'
                         name='email'
                         value={email}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="email">Email address</label>
-                      <div className="form-text text-danger"> {emailError && <p style={{ color: 'red' }}  >{emailError}</p>} </div>
+                      <div className="form-text text-danger ">  {emailError && <p style={{ color: 'red' }}  >  {emailError}</p>} </div>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="password" className="form-control rounded-4"  placeholder='Password'
@@ -163,6 +163,9 @@ const Login = () => {
           Don't have an account? <Link to='/register'>Sign up now!</Link>
         </p>
       </div> */}
+      <div className='mybootstrap'> 
+      <p className='text-primary'> deneme</p>
+      </div>
     </div>
   );
 };

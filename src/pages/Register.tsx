@@ -3,14 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
 import AuthContext, { AuthContextType } from '../context/AuthContext';
-
+import '../styles/bootstrap.css'
 type Props = {}
 
 const Register = (props: Props) => {
-
-
-
-
 
   const auth = useContext(AuthContext) as AuthContextType;
   const navigate = useNavigate();
@@ -53,18 +49,18 @@ const Register = (props: Props) => {
     let formValid = true;
     let emailPattern =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if(name === ""){
-        formValid = false;
-        setnameError('');
-        setEmailError('');
-        setpswdError('');
-        setcpswdError('');
-        setnameError('Please enter name');
-      } else  if (email === '') {
-        setnameError('');
-        setEmailError('');
-        setpswdError('');
-        setcpswdError('');
+    if (name === "") {
+      formValid = false;
+      setnameError('');
+      setEmailError('');
+      setpswdError('');
+      setcpswdError('');
+      setnameError('Please enter name');
+    } else if (email === '') {
+      setnameError('');
+      setEmailError('');
+      setpswdError('');
+      setcpswdError('');
       formValid = false;
       setEmailError('Please enter email');
     } else if (!email.match(emailPattern)) {
@@ -160,28 +156,27 @@ const Register = (props: Props) => {
   //   }
   // };
   return (
-   
 
-      <div className='mybootstrap'>
 
-<div className='mybootstrap '>
+    <div className='mybootstrap'>
+
       <div className="container mt-5 mb-5 w-50  ">
         <div className="modal-lg  mx-auto bg-light bg-opacity-25" >
           <div className="modal-lg-dialog ">
             <div className="modal-content rounded-5 shadow text-center">
               <div className="modal-header  ">
-                <h2 className="mx-auto my-auto mt-5 mb-5  ">Sign Up</h2>
+                <h2 className="mx-auto my-auto mt-5 mb-4  ">Sign Up</h2>
               </div>
               <h4> {error && <p style={{ color: 'red' }}>{error}</p>}  </h4>
               <div className="modal-body ">
                 <form className="row justify-content-center " onSubmit={(e) => onSubmit(e)} noValidate>
-                  <div className="col-7">
-                  <div className="form-floating mb-3">
-                      <input type="text" className="form-control rounded-4"   placeholder='Name'
-                name='name'
-                required
-                value={name}
-                onChange={(e) => onChange(e)} />
+                  <div className="col-5">
+                    <div className="form-floating mb-3">
+                      <input type="text" className="form-control rounded-4" placeholder='Name'
+                        name='name'
+                        required
+                        value={name}
+                        onChange={(e) => onChange(e)} />
                       <label htmlFor="name">Name</label>
                       <div className="form-text text-danger"> {nameError && <p style={{ color: 'red' }}>{nameError}</p>} </div>
                     </div>
@@ -194,20 +189,20 @@ const Register = (props: Props) => {
                       <div className="form-text text-danger"> {emailError && <p style={{ color: 'red' }} >{emailError}</p>} </div>
                     </div>
                     <div className="form-floating mb-3">
-                      <input type="password" className="form-control rounded-4"  placeholder='Password'
-              name='password'
+                      <input type="password" className="form-control rounded-4" placeholder='Password'
+                        name='password'
 
-              value={password}
-              onChange={(e) => onChange(e)} />
+                        value={password}
+                        onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Password</label>
                       <div className="form-text text-danger">{pswdError && <p style={{ color: 'red' }}>{pswdError}</p>}</div>
                     </div>
 
                     <div className="form-floating mb-3">
-                      <input type="password" className="form-control rounded-4"     placeholder='Confirm Password'
-                name='password2'
-                value={password2}
-                onChange={(e) => onChange(e)} />
+                      <input type="password" className="form-control rounded-4" placeholder='Confirm Password'
+                        name='password2'
+                        value={password2}
+                        onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Confrim Password</label>
                       <div className="form-text text-danger">  {cpswdError && <p style={{ color: 'red' }}>{cpswdError}</p>}</div>
                     </div>
@@ -228,13 +223,13 @@ const Register = (props: Props) => {
             </div>
           </div>
         </div>
-     
-        </div>
-        </div>
+
+      </div>
 
 
-    
-        {/* <div className="center">
+
+
+      {/* <div className="center">
           <h1 className="text-center">Sign Up</h1>
           <p><b>Create Your Account</b></p>
           <br></br>
@@ -289,8 +284,8 @@ const Register = (props: Props) => {
           </p>
         </div> */}
 
-      </div>
-   
+    </div>
+
   );
 };
 
