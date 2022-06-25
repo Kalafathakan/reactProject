@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <div className='footer-dark'>
       <footer>
-        <div className='container'>
-          <div className='row'>
+        <div>
+          <div>
             <div className='footer-nav'>
               <Navigation />
               <Routes>

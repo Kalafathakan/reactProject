@@ -15,7 +15,7 @@ type Props = {};
 const FAQ = (props: Props) => {
   return (
     <><div>
-      <h1>
+      <h1 id="topics-hk">
         Frequently Asked Questions
       </h1>
       <Accordion>

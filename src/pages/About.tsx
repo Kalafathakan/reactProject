@@ -5,8 +5,8 @@ type Props = {};
 const About = (props: Props) => {
 
   return (
-    <div className='page-style'>
-      <h1>About Us</h1>
+    <div className='page-style-hk'>
+      <h1 id="topics-hk">About Us</h1>
       <div className="center">
         <p><b>The Development Team</b></p>
         <br></br>

@@ -252,7 +252,7 @@ button {
 }
 
 
-.navbar {
+.navbar-hk {
 	margin: 27px auto 0;
   padding-left: 10px;
 	position: relative;
@@ -267,7 +267,7 @@ button {
   background-color: rgb(35, 35, 35);
 }
 
-.navbar .navbarsection {
+.navbar-hk .navbarsection {
   line-height: 50px;
   height: 100%;
   font-size: 16px;
@@ -282,7 +282,7 @@ button {
   font-family: Kdam Thmor Pro;
 }
 
-.navbar .animation {
+.navbar-hk .animation {
   position: absolute;
   height: 100%;
   top: 0;
@@ -324,7 +324,7 @@ button {
   width: 100%;
 }
 
-h1 {
+#topics-hk {
   text-align: center;
   margin: 40px 0 40px;
   text-align: center;
@@ -350,7 +350,7 @@ h1 {
 }
 
 
-.page-style {
+.page-style-hk {
   min-height: calc(100vh - 250px);
   width: 80%;
   margin: 30px auto;

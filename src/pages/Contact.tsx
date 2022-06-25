@@ -92,9 +92,9 @@ const Contact = (props: Props) => {
 
 
   return (
-    <div className="page-style">
+    <div className="page-style-hk">
       <div className="t-a">
-        <h1>Contact Us</h1>
+        <h1 id="topics-hk">Contact Us</h1>
         <p><b>Send us your message and we will get back to you as soon as possible</b></p>
         <hr />
       </div>

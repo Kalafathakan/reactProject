@@ -9,7 +9,7 @@ const Navigation = () => {
       <div className="logo">
         <img id='logo-img' src={require('../images/logo.png')} width="250px"></img>
       </div>
-      <nav className='navbar'>
+      <nav className='navbar-hk'>
         <a id='navsec' className='navbarsection'>
           <NavLink to='/'>Home</NavLink>
         </a>

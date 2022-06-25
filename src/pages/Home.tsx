@@ -2,8 +2,8 @@ const Home = () => {
 
   return (
 
-    <div className='page-style'>
-      <h1>Home</h1>
+    <div className='page-style-hk'>
+      <h1 id="topics-hk">Home</h1>
       <div id='homeInfo'>
         <div className="center">
           <h2>Welcome to Falcons Restaurant!</h2>

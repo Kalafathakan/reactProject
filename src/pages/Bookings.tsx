@@ -176,7 +176,7 @@ const Bookings = () => {
   }, []);
   return (
     <div className='container-info'>
-      <h1>Reserve a seat today!</h1>
+      <h1 id="topics-hk">Reserve a seat today!</h1>
       <div className='row-info'>
         <div className='col-info'>
 

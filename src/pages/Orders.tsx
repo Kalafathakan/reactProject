@@ -4,8 +4,8 @@ type Props = {};
 const Orders = (props: Props) => {
   const params = useParams();
   return (
-    <div className='page-style'>
-      <h1>Orders</h1>
+    <div className='page-style-hk'>
+      <h1 id="topics-hk">Orders</h1>
       <h3>Your Order History</h3>
       <table className="order-table">
         <tr>
