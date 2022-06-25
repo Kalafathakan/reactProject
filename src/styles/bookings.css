@@ -22,10 +22,17 @@
 
 }
 
-.thanks-img {
+.thanks-img{
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    align-content: center;
+
+}
+.thanks-img img{
+    width: 600px;
+    height: 400px;
+
 }
 
 .row-info {

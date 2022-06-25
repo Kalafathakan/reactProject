@@ -1,7 +1,6 @@
 import { NavLink, useParams } from 'react-router-dom';
 import Calendar from 'react-calendar'
 import React, { SetStateAction, useEffect, useState } from "react"
-
 import '../styles/bookings.css'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -9,12 +8,10 @@ import axios from 'axios';
 type Props = {
   time: string
 }[];
-type TimeProps = {
-  time_slot: string
-}[];
+
 type SlotProps = {
-  date : string,
-  time_slot : string,
+  date: string,
+  time_slot: string,
   name: string,
   email: string,
   phoneno: string,
@@ -22,6 +19,7 @@ type SlotProps = {
 const Bookings = () => {
   let navigate = useNavigate()
   const [date, setDate] = useState(new Date())
+  const [bookedSlot, setBookedSlot] = useState<SlotProps>([])
   const [timeSelected, setTimeSelected] = useState('12pm')
   const [formData, setFormData] = useState({
     fullname: '',
@@ -33,7 +31,7 @@ const Bookings = () => {
   const [fieldError, setFieldError] = useState('');
   const [error, setError] = useState();
 
-  //Set time slots for booking time
+  //initialize time slots
   const [timeSlot, setTimeSlot] = useState<Props>([{
     time: "12pm"
   },
@@ -54,46 +52,31 @@ const Bookings = () => {
   },
   ])
 
-  const [bookedSlot, setBookedSlot] = useState<SlotProps>([])
-  const [bookedTimeSlot, setBookedTimeSlot] = useState<SlotProps>([])
-  const [result, setResult] = useState<SlotProps>([])
+ //get bookings from the database
   const sendGetRequest = async () => {
     try {
       const response = await axios.get(
         'https://shielded-depths-40144.herokuapp.com/bookings'
       );
-      console.log(response.data);
       setBookedSlot(response.data)
-      // var date2 = new Date(date.toDateString());
-      // var z = date2.getUTCDate()
- 
-      // const result = bookedSlot.filter(slot => {
-      //   var date1 = new Date(slot.date);
-      //   var y = date1.getUTCDate()
-      //  if(y === z){
-      //   return slot.time_slot
-      //   }
-      // })
-      // //setBookedTimeSlot(p => [...p, result])
-      // console.log(result[0])
-
     } catch (err) {
       console.log(err);
     }
   };
 
-  const check = () => {
-    var date2 = new Date(date.toDateString());
-    var z = date2.getUTCDate()
-    var result = bookedSlot.filter(slot => {
-        var date1 = new Date(slot.date);
-        var y = date1.getUTCDate()
-       if(y === z){
-       return slot
-        }
-      })
-      console.log(result)
-  }
+  //convert current date to day number
+  var date2 = new Date(date.toDateString());
+  var z = date2.getUTCDate()
+
+  //filter the date chosen by the user from the dates in the database
+  var result = bookedSlot.filter(slot => {
+    var date1 = new Date(slot.date);
+    var y = date1.getUTCDate()
+    if (y === z) {
+      return slot
+    }
+  })
+
   //update date when user clicks on the calender date
   const changedDate = (d: SetStateAction<Date>) => {
     setDate(d)
@@ -112,6 +95,7 @@ const Bookings = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    //validate form
     let formValid = true;
     let emailPattern =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -134,6 +118,7 @@ const Bookings = () => {
     }
 
 
+    //add booking to the database
     if (formValid) {
       let config = {
         headers: {
@@ -157,22 +142,22 @@ const Bookings = () => {
         );
         console.log(response.data);
         navigate("../thankyou", { replace: true });
-        //localStorage.setItem('token', response.data.token);
-     
+
       } catch (err: any) {
         console.log(err);
         setError(err.response.data.errors || 'something went wrong');
       }
-     
+
     }
   }
+
+  //get max and min date for calender view
+  var myCurrentDate = new Date();
+  var myFutureDate = new Date(myCurrentDate);
+  myFutureDate.setDate(myFutureDate.getDate() + 14);
   useEffect(() => {
-   
-    // axios.get('https://shielded-depths-40144.herokuapp.com/bookings').then((response) => {
-    //   console.log(response);
-    // });
+
     sendGetRequest();
-    check();
   }, []);
   return (
     <div className='container-info'>
@@ -184,6 +169,8 @@ const Bookings = () => {
           {/* display calender */}
           <Calendar
             onChange={changedDate}
+            minDate={new Date()}
+            maxDate={myFutureDate}
             value={date}
           />
           <p>Current selected date is <b>{date.toDateString()}</b></p>
@@ -192,7 +179,7 @@ const Bookings = () => {
             <h2>Select time slot</h2>
             <label>Available Time slot</label> &nbsp; &nbsp;
             <select value={timeSelected} onChange={handleTimeChange}>
-              {timeSlot.map(t =>
+              {timeSlot.filter(p => !result.find(r => r.time_slot == p.time)).map(t =>
                 <option className="dropdown-item" value={t.time}>{t.time}</option>
               )}
             </select>
@@ -207,6 +194,7 @@ const Bookings = () => {
             <fieldset style={{ padding: "20px" }}>
               <legend>Your Info</legend>
               {fieldError && <p style={{ color: 'red' }}>{fieldError}</p>}
+              {error && <p style={{ color: 'red' }}>{error}</p>}
               <input type="hidden" className="form-control" id="date-info" value={date.toDateString()} />
               <input type="hidden" className="form-control" id="time-info" value={timeSelected} />
 
