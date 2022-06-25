@@ -91,7 +91,7 @@ const Login = () => {
               <div className="modal-header  ">
                 <h2 className="mx-auto my-auto mt-5 mb-4 display-2 ">Sign in</h2>
               </div>
-              <h4> {error && <p >{error}</p>}  </h4>
+              <h4 className=" text-danger "> {error && <p >{error}</p>}  </h4>
               <div className="modal-body ">
                 <form className="row justify-content-center " onSubmit={(e) => onSubmit(e)} noValidate>
                   <div className="col-6">
