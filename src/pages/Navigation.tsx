@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext, { AuthContextType } from '../context/AuthContext';
 
 const Navigation = () => {
+  const auth = useContext(AuthContext) as AuthContextType;
   return (
     <div>
       <div className="logo">
@@ -13,6 +16,11 @@ const Navigation = () => {
         <a id='navsec' className='navbarsection'>
           <NavLink to='/menu'>Menu</NavLink>
         </a>
+        {auth.isLoggedIn && (
+          <a id='navsec' className='navbarsection'>
+            <NavLink to='/mypage'>My Page</NavLink>
+          </a>
+        )}
         <a id='navsec' className='navbarsection'>
           <NavLink to='/cart'>Cart</NavLink>
         </a>
@@ -34,9 +42,19 @@ const Navigation = () => {
         <a id='navsec' className='navbarsection'>
           <NavLink to='/contact'>Contact Us</NavLink>
         </a>
-        <a id='navsec' className='navbarsection'>
-          <NavLink to='/login'>Login</NavLink>
-        </a>
+        {!auth.isLoggedIn && (
+
+
+          <a id='navsec' className='navbarsection'>
+            <NavLink to='/login'>Login</NavLink>
+          </a>
+        )}
+        {!auth.isLoggedIn && (
+          <a id='navsec' className='navbarsection'>
+            <NavLink to='/register'>Register</NavLink>
+          </a>
+        )}
+
       </nav>
     </div>
   );

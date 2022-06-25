@@ -14,11 +14,24 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import Thankyou from './pages/Thankyou';
+import AuthContext from './context/AuthContext';
+import { useState } from 'react';
+import MyPage from './pages/MyPage';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 const App = () => {
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const login = () => {
+    setIsLoggedIn(true);
+  };
+  const logout = () => {
+    setIsLoggedIn(false);
+  };
   return (
     <div>
+       <AuthContext.Provider
+        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      > 
           <Navigation />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -33,8 +46,12 @@ const App = () => {
             <Route path='contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route element={<ProtectedRoute />}>
+            <Route path='/mypage' element={<MyPage />} />
+            </Route>
           </Routes>
           <Footer />
+          </AuthContext.Provider>
     </div>
     
   );

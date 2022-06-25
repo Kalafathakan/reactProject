@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
+import AuthContext, { AuthContextType } from '../context/AuthContext';
 
 const Login = () => {
+  const auth = useContext(AuthContext) as AuthContextType;
+  const navigate = useNavigate();
   //state variables for form data
   const [formData, setFormData] = useState({
     email: '',
@@ -11,12 +14,32 @@ const Login = () => {
   });
 
   const { email, password } = formData;
+  
+  const [emailError, setEmailError] = useState('');
+
+  const [error, setError] = useState();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    let formValid = true;
+    let emailPattern =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (email === '') {
+      formValid = false;
+      setEmailError('Please enter email');
+    } else if (!email.match(emailPattern)) {
+      formValid = false;
+      setEmailError('Please enter email in valid format');
+    } else {
+      formValid = true;
+      setEmailError('');
+    }
+
+    if (formValid) {
 
     let config = {
       headers: {
@@ -36,12 +59,17 @@ const Login = () => {
         data,
         config
       );
+      console.log("my token "+response.data.token)
       console.log(response.data);
       localStorage.setItem('token', response.data.token);
+      auth.login();
+      navigate('/mypage');
       console.log(decode(response.data.token));
-    } catch (e) {
-
+    } catch (err: any) {
+      console.log(err);
+      setError(err.response.data.errors || 'something went wrong');
     }
+  }
   };
 
   return (
@@ -49,6 +77,7 @@ const Login = () => {
       <h1>Sign In</h1>
       <div className="center">
         <p><b>Sign into your account</b></p>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <form className="loginBox" onSubmit={(e) => onSubmit(e)}>
           <div>
             <input
@@ -58,6 +87,7 @@ const Login = () => {
               value={email}
               onChange={(e) => onChange(e)}
             />
+             {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
           </div>
           <div>
             <input
