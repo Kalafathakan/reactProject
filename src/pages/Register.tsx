@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
 import AuthContext, { AuthContextType } from '../context/AuthContext';
-import '../styles/bootstrap.css'
+//import '../styles/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 type Props = {}
 
 const Register = (props: Props) => {
@@ -158,19 +160,19 @@ const Register = (props: Props) => {
   return (
 
 
-    <div className='mybootstrap'>
+    <div  style={{ backgroundColor: '#e8e7e7' }} >
 
-      <div className="container mt-5 mb-5 w-50  ">
-        <div className="modal-lg  mx-auto bg-light bg-opacity-25" >
-          <div className="modal-lg-dialog ">
-            <div className="modal-content rounded-5 shadow text-center">
+      <div className="container mt-5 mb-5 w-100    ">
+        <div className="modal-lg  mx-auto  " >
+          <div className="modal-lg-dialog  ">
+            <div className="modal-content rounded-5 shadow text-center bg-light bg-opacity-25">
               <div className="modal-header  ">
-                <h2 className="mx-auto my-auto mt-5 mb-4  ">Sign Up</h2>
+                <h2 className="mx-auto my-auto mt-5 mb-4 display-2 ">Sign Up</h2>
               </div>
               <h4> {error && <p style={{ color: 'red' }}>{error}</p>}  </h4>
               <div className="modal-body ">
                 <form className="row justify-content-center " onSubmit={(e) => onSubmit(e)} noValidate>
-                  <div className="col-5">
+                  <div className="col-6">
                     <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Name'
                         name='name'
@@ -178,7 +180,7 @@ const Register = (props: Props) => {
                         value={name}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="name">Name</label>
-                      <div className="form-text text-danger"> {nameError && <p style={{ color: 'red' }}>{nameError}</p>} </div>
+                      <div className="form-text text-danger"> {nameError && <p >{nameError}</p>} </div>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="email" className="form-control rounded-4" placeholder='Email Address'
@@ -186,7 +188,7 @@ const Register = (props: Props) => {
                         value={email}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="email">Email address</label>
-                      <div className="form-text text-danger"> {emailError && <p style={{ color: 'red' }} >{emailError}</p>} </div>
+                      <div className="form-text text-danger"> {emailError && <p >{emailError}</p>} </div>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="password" className="form-control rounded-4" placeholder='Password'
@@ -195,7 +197,7 @@ const Register = (props: Props) => {
                         value={password}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Password</label>
-                      <div className="form-text text-danger">{pswdError && <p style={{ color: 'red' }}>{pswdError}</p>}</div>
+                      <div className="form-text text-danger">{pswdError && <p >{pswdError}</p>}</div>
                     </div>
 
                     <div className="form-floating mb-3">
@@ -204,17 +206,21 @@ const Register = (props: Props) => {
                         value={password2}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Confrim Password</label>
-                      <div className="form-text text-danger">  {cpswdError && <p style={{ color: 'red' }}>{cpswdError}</p>}</div>
+                      <div className="form-text text-danger">  {cpswdError && <p >{cpswdError}</p>}</div>
                     </div>
-                    <button className="w-50 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign
+                    <div className="col-9 mx-auto">
+                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-primary rounded-pill" type="submit">Sign
                       up</button>
+                      </div>
                     <div className="w-100"></div>
                     <small className="text-muted ">By clicking Sign up, you agree to the terms of
                       use.</small>
                     <div className="modal-footer mt-4">
-                      <h2 className="mx-auto my-auto " >Already have an account?</h2>
+                      <h3 className="mx-auto my-auto " >Already have an account?</h3>
                       <div className="w-100"></div>
-                      <a className="w-50 mt-2 btn btn-lg rounded-4 btn-primary border mx-auto mb-5" href="/login" role="button">Sign in</a>
+                      <div className="col-9 mx-auto">
+                      <a className="w-100 p-3 mt-2 btn btn-lg rounded-4 btn-primary border  mb-5 rounded-pill" href="/login" role="button">Sign in</a>
+                      </div>
                       <div className="w-100"></div>
                     </div>
                   </div>
