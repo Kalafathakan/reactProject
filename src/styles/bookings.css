@@ -50,20 +50,20 @@ legend {
 }
 
 .form-group label {
-    font-size: large;
+    font-size: large !important;
 
 }
 
 .form-group {
-    text-align: center;
+    text-align: center !important;
 }
 
 .form-group input {
-    width: 90%;
-    height: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: medium;
-    margin-bottom: 40px;
+    width: 100% !important;
+    height: 50px !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: medium !important;
+    margin-bottom: 40px !important;
 
 }
 
@@ -72,7 +72,8 @@ legend {
     height: 40px;
     display: block;
     margin: auto;
-    background-color: rgb(47, 44, 44);
+    background-color: rgb(47, 44, 44)!important;
+    color: #fff !important;
 }
 
 .btn-info:hover {

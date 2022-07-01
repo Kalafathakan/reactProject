@@ -81,7 +81,13 @@ const Contact = (props: Props) => {
           config
         );
         console.log(response.data);
-        //localStorage.setItem('token', response.data.token);
+          
+        //if response is successful, display alert and clear input fields
+        alert("Email sent!");
+       setFormData({fname : '', lname: '', email : ''})
+       setSubject({subject : ''})
+
+
      
       } catch (err: any) {
         console.log(err);
@@ -106,6 +112,7 @@ const Contact = (props: Props) => {
           <div className="col-form">
             <form onSubmit={handleFormSubmit}>
               {fieldError && <p style={{ color: 'red' }}>{fieldError}</p>}
+              {error && <p style={{ color: 'red' }}>{error}</p>}
               <label>First Name</label>
               <input type="text"
                 id="fname"

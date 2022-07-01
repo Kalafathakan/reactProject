@@ -145,7 +145,7 @@ const Bookings = () => {
 
       } catch (err: any) {
         console.log(err);
-        setError(err.response.data.errors || 'something went wrong');
+        setError(err.response.errors || 'something went wrong');
       }
 
     }

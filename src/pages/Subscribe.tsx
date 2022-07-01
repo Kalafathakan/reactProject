@@ -62,11 +62,14 @@ const Subscribe = () => {
                   config
                 );
                 console.log(response.data);
-                //localStorage.setItem('token', response.data.token);
+
+                //display alert is subsription is successful
+              alert("You have successfully subscribed to our newsletter!")
+              setFormData({firstName: '', email : ''})
              
               } catch (err: any) {
                 console.log(err);
-                setError(err.response.data.errors || 'something went wrong');
+                setError(err.response.errors || 'something went wrong');
               }
         }
     }
