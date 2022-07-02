@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Food from "./Food";
 import Search from "./Search";
+import MenuFormForAdmin from "./MenuFormForAdmin";
 
 type MenuType = {
   _id: String,
@@ -121,6 +122,24 @@ const MenuAPIForAdmin = () => {
         <button onClick={sendDeleteRequest}>Delete Food</button>
       </div>      
       <br></br>*/}
+      <MenuFormForAdmin food={{
+        _id: "undefined",
+        food_id: "undefined",
+        food_name: "undefined",
+        price: "undefined",
+        description: "undefined",
+        category: "undefined",
+        active: "undefined",
+        image: "undefined",
+        quantity: 0,
+        onQuantityChange: function (id: String, data: number): void {
+          throw new Error("Function not implemented.");
+        },
+        UpdateMenuItem: function (selectedFoodId: String): void {
+          throw new Error("Function not implemented.");
+        }
+      }} />
+
       <Search filterMenu={filterMenu} />
       <h2>Starters</h2>
       <div className="food-items">
