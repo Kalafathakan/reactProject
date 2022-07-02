@@ -18,6 +18,7 @@ import AuthContext from './context/AuthContext';
 import { useState } from 'react';
 import MyPage from './pages/MyPage';
 import ProtectedRoute from './pages/ProtectedRoute';
+import Admin from './pages/Admin';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,7 +48,7 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route element={<ProtectedRoute />}>
-            <Route path='/mypage' element={<MyPage />} />
+            <Route path='/admin' element={<Admin />} />
             </Route>
           </Routes>
           <Footer />

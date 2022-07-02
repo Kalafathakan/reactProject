@@ -18,7 +18,7 @@ const Navigation = () => {
         </a>
         {auth.isLoggedIn && (
           <a id='navsec' className='navbarsection'>
-            <NavLink to='/mypage'>My Page</NavLink>
+            <NavLink to='/admin'>Admin</NavLink>
           </a>
         )}
         <a id='navsec' className='navbarsection'>
