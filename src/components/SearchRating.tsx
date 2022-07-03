@@ -73,7 +73,9 @@ const Search = (props: SearchRatingProps) => {
         onChange={handleChange}
       />
 
-      {/*       <select value={searchRating}>
+      {/* Tried to make it a dropdown of options
+      
+      <select value={searchRating}>
         <option>Select Rating</option>
         {stars.map((star) => (
           <option value={star.value} >{star.label} </option>

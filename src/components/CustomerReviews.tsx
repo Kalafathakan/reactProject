@@ -3,8 +3,6 @@ type ReviewsProps = {
   name: String;
   rating: String;
   review: String;
-  id: String;
-  onAdd: (id: String) => void
 }
 
 //props are arguements/properties that are passed to the React components
