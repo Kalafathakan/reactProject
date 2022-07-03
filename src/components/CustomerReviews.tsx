@@ -1,10 +1,10 @@
 //declaring ReviewProps with properties and functions
 type ReviewsProps = {
-  name: string;
-  rating: string;
-  review: string;
-  id: string;
-  onAdd: (id: string) => void
+  name: String;
+  rating: String;
+  review: String;
+  id: String;
+  onAdd: (id: String) => void
 }
 
 //props are arguements/properties that are passed to the React components
