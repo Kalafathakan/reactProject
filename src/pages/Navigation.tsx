@@ -6,9 +6,6 @@ const Navigation = () => {
   const auth = useContext(AuthContext) as AuthContextType;
   return (
     <div>
-      <div className="logo">
-        <img id='logo-img' src={require('../images/logo.png')} width="250px"></img>
-      </div>
       <nav className='navbar-hk'>
         <a id='navsec' className='navbarsection'>
           <NavLink to='/'>Home</NavLink>
@@ -54,8 +51,11 @@ const Navigation = () => {
             <NavLink to='/register'>Register</NavLink>
           </a>
         )}
-
+        <div className="logo">
+          <img id='logo-img' src={require('../images/logo.png')} width="150px"></img>
+        </div>
       </nav>
+
     </div>
   );
 };

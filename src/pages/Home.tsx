@@ -7,9 +7,11 @@ const Home = () => {
       <div id='homeInfo'>
         <div className="center">
           <h2>Welcome to Falcons Restaurant!</h2>
-          <img id="homeLogo" src={require('../images/logo.png')} width="auto" height="auto" /><br />
           <div className="homeContent">
             <div className="homeContent2">
+              <div className="homeImg">
+              <img id="homeLogo" src={require('../images/logo.png')} width="auto" height="auto" /><br />
+              </div>
               <p>
                 Since opening our doors in June 2022, we have always been fascinated by the variety of foods in countries around the world. Thus, we founded Falcons, a multicultural restaurant with something for everyone.
 
