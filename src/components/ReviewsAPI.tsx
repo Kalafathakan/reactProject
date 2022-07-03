@@ -26,6 +26,17 @@ const ReviewsAPI = () => {
     }
   };
 
+  const sendPostRequest = async () => {
+    try {
+      const response = await axios.post(
+        'https://shielded-depths-40144.herokuapp.com/reviews'
+      );
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const sendDeleteRequest = async () => {
     try {
       const response = await axios.delete(
@@ -39,7 +50,7 @@ const ReviewsAPI = () => {
   };
 
   
-    //adding of task - ... is a spread operator
+    //adding of review - ... is a spread operator
     const handleAddReview = (name: string, rating: string, review: string) => {
         setReviewsList((prevState) => [
             ...prevState,

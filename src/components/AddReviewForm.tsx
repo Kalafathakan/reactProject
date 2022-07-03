@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { SetStateAction, useState } from 'react';
 import '../styles/Reviews.css'
 
@@ -59,13 +60,28 @@ const AddReviewForm = (props: AddProps) => {
   };
 
   //submits the form and updates the review list, resets the labels to empty
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     //by default it will submit the form, so prevent
     e.preventDefault();
     props.onAdd(name, rating, review);
     setName('');
     setRating('');
     setReview('');
+
+    let data = {
+      name: name,
+      rating: rating,
+      review: review
+    }
+
+      try {
+        const response = await axios.post(
+          'https://shielded-depths-40144.herokuapp.com/reviews', data
+        );
+        console.log(response.data);
+      } catch (err) {
+        console.log(err);
+      }
   };
 
   return (
