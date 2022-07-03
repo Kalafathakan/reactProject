@@ -6,7 +6,8 @@ type SearchRatingProps = {
 
 const stars = [
   {
-    label: "Select Rating"
+    label: "Select Rating",
+    value: ""
   },
   {
     label: "1 Star",
@@ -35,25 +36,23 @@ const stars = [
   }
 ];
 
-//search by rating - adapted from Vishnu's search component
-
+//search by rating for reviews
 const Search = (props: SearchRatingProps) => {
   const [searchRating, setSearchRating] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function handleChangeSelect(e: React.ChangeEvent<HTMLSelectElement>): void {
     setSearchRating(e.target.value);
     props.filterRating(e.target.value);
-  };
+  }
 
   return (
     <div id="searchbar">
       Search by Rating: &nbsp;
-      <input
-        type='text'
-        placeholder='Search by Rating'
-        value={searchRating}
-        onChange={handleChange}
-      />
+
+      <select onChange={(e) => handleChangeSelect(e)} value={searchRating} >
+        {stars.map((star) => (
+          <option value={star.value}>{star.label}</option>))}
+      </select>
     </div>
   );
 };
