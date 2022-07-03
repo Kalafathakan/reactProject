@@ -4,14 +4,10 @@ import CustomerReviews from "./CustomerReviews";
 import AddReviewForm from "./AddReviewForm";
 import SearchRating from "./SearchRating";
 
-//used to create a unique ID
-import { v4 as uuidv4 } from 'uuid';
-
 type ReviewListProps = {
     name: String,
     rating: String,
     review: String,
-    id: String
 };
 
 const ReviewsAPI = () => {
@@ -47,7 +43,7 @@ const ReviewsAPI = () => {
     const handleAddReview = (name: string, rating: string, review: string) => {
         setReviewsList((prevState) => [
             ...prevState,
-            { name: name, rating: rating, review: review, id: uuidv4() },
+            { name: name, rating: rating, review: review },
         ]);
     };
 
@@ -89,12 +85,7 @@ const ReviewsAPI = () => {
                     <CustomerReviews
                         name={rl.name}
                         rating={rl.rating}
-                        review={rl.review}
-                        id={rl.id}
-                        key={rl.id.toString()}
-                        onAdd={function (id: String): void {
-
-                        }} />
+                        review={rl.review} />
                 ))}
         </div>
     );
