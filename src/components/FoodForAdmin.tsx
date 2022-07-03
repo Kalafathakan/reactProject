@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import React from 'react';
 type FoodProps = {
-  food: {
+  //food: {
     food_id: String,
     food_name: String,
     price: String,
@@ -12,14 +12,17 @@ type FoodProps = {
     active: String,
     image: String,
     quantity: number
-    onQuantityChange: (id: String, data: number) => void;
-    MUpdateMenuItem: (selectedFoodId: String) => void;
-  };
+  //  onQuantityChange: (id: String, data: number) => void;
+    UpdateMenuItem: (selectedFoodId: String) => void;
+//  };
 };
 
+type myf = {
+  UpdateMenuItem: (selectedFoodId: String) => void;
+}
 
 
-const FoodForAdmin = ({ food }: FoodProps  ) => {
+const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,description}: FoodProps,   ) => {
 
   //const [foodForForm, setFoodForForm] = useState<FoodProps[]>([]);
   // const UpdateMenuItem = (mydata : String) => {
@@ -41,15 +44,15 @@ const FoodForAdmin = ({ food }: FoodProps  ) => {
   return (
     <div className='food-box'>
       <div className='food-img'>
-        <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${food.image}`} alt={`${food.food_name}`} className="img-responsive img-curve" height="auto" width="150px" />
+        <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${image}`} alt={`${food_name}`} className="img-responsive img-curve" height="auto" width="150px" />
       </div>
       <div className='food-details'>
-        <h4>{food.food_name}</h4>
-        <p className="food-price">${food.price}</p>
-        <p className="food-desc">{food.description}</p>
+        <h4>{food_name}</h4>
+        <p className="food-price">${price}</p>
+        <p className="food-desc">{description}</p>
 
         
-        <button  className="btn btn-primary" onClick={() => food.MUpdateMenuItem(food.food_id)}   >Submit</button>
+        <button  className="btn btn-primary" onClick={() => UpdateMenuItem("5")}   >Submit</button>
         {/* <a href="" className="menu-btn" onClick={() => UpdateMenuItem(food.food_id)}>Update</a> */}
         <a href="" className="menu-btn">Delete</a>
       </div>

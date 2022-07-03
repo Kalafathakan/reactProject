@@ -3,6 +3,7 @@ import axios from 'axios';
 import Food from "./Food";
 import Search from "./Search";
 import MenuFormForAdmin from "./MenuFormForAdmin";
+import FoodForAdmin from "./FoodForAdmin";
 
 type MenuType = {
   _id: String,
@@ -15,11 +16,50 @@ type MenuType = {
   image: String,
   quantity: number
   onQuantityChange: (id: String, data: number) => void;
+ UpdateMenuItem: (selectedFoodId: String) => void;
+};
+
+type MenuType2 = {
+  _id: String,
+  food_id: String,
+  food_name: String,
+  price: String,
+  description: String,
+  category: String,
+  active: String,
+  image: String,
+  quantity: number
+//  onQuantityChange: (id: String, data: number) => void;
+  UpdateMenuItem: (selectedFoodId: String) => void;
 };
 
 const MenuAPIForAdmin = () => {
   const [search, setSearch] = useState('');
   const [foods, setFoods] = useState<MenuType[]>([]);
+  const MUpdateMenuItem = (mydata : String) => {
+     console.log(mydata)
+    //food.UpdateMenuItem(mydata)
+   }
+    const [foodForForm, setFoodForForm] = useState<MenuType2>({
+      _id: "",
+      food_id: "",
+      food_name: "",
+      price: "",
+      description: "",
+      category: "",
+      active: "",
+      image: "",
+      quantity: 0,
+   
+      UpdateMenuItem: MUpdateMenuItem
+      
+      
+      // function (selectedFoodId: String): void {
+      //   throw new Error("Function not implemented.");}
+      }
+      );
+
+
 
   const sendGetRequest = async () => {
     try {
@@ -122,60 +162,44 @@ const MenuAPIForAdmin = () => {
         <button onClick={sendDeleteRequest}>Delete Food</button>
       </div>      
       <br></br>*/}
-      <MenuFormForAdmin food={{
-        _id: "undefined",
-        food_id: "undefined",
-        food_name: "undefined",
-        price: "undefined",
-        description: "undefined",
-        category: "undefined",
-        active: "undefined",
-        image: "undefined",
-        quantity: 0,
-        onQuantityChange: function (id: String, data: number): void {
-          throw new Error("Function not implemented.");
-        },
-        UpdateMenuItem: function (selectedFoodId: String): void {
-          throw new Error("Function not implemented.");
-        }
-      }} />
+      
 
       <Search filterMenu={filterMenu} />
       <h2>Starters</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Starters") ? <Food food={food} key={food._id.toString()} /> : ""
+          (food.category == "Starters") ? <FoodForAdmin food_id='' food_name='' price='' UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description='' category='' active='' image='' quantity={0} /> : ""
         ))}
       </div>
       <h2>Mains</h2>
-      <div className="food-items">
+      {/* <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Mains") ? <Food food={food} key={food._id.toString()} /> : ""
+          (food.category == "Mains") ? <FoodForAdmin food={food} key={food._id.toString()} /> : ""
         ))}
-      </div>
+      </div> */}
       <h2>Curries</h2>
-      <div className="food-items">
+      {/* <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Curries") ? <Food food={food} key={food._id.toString()} /> : ""
+          (food.category == "Curries") ? <FoodForAdmin food={food}  key={food._id.toString()} /> : ""
         ))}
-      </div>
+      </div> */}
       <h2>Desserts</h2>
-      <div className="food-items">
+      {/* <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Desserts") ? <Food food={food} key={food._id.toString()} /> : ""
+          (food.category == "Desserts") ? <FoodForAdmin food={food} key={food._id.toString()} /> : ""
         ))}
-      </div>
+      </div> */}
       <h2>Beverages</h2>
-      <div className="food-items">
+      {/* <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Beverages") ? <Food food={food} key={food._id.toString()} /> : ""
+          (food.category == "Beverages") ? <FoodForAdmin food={food} key={food._id.toString()} /> : ""
         ))}
-      </div>
+      </div> */}
     </div>
 
   );
