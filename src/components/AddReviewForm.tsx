@@ -1,4 +1,5 @@
 import { SetStateAction, useState } from 'react';
+import '../styles/Reviews.css'
 
 //declaring AddProps with onAdd function
 type AddProps = {
@@ -92,11 +93,11 @@ const AddReviewForm = (props: AddProps) => {
           </select>
           <br></br>
           <span>Review: </span>
-          <textarea
+          <textarea className='reviews-textarea'
             value={review}
             onChange={handleReviewChange}
-            placeholder='Enter your Review (459 characters max)'
-            maxLength={459}
+            placeholder='Enter your Review (460 characters max)'
+            maxLength={460}
             required
           />
           <br></br>
