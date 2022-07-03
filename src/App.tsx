@@ -19,15 +19,21 @@ import { useState } from 'react';
 import MyPage from './pages/MyPage';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Admin from './pages/Admin';
-import FormContext, { foodForFormType } from './context/FormContext';
+import FormContext, { foodForFormType } from './context/AdminFormContext';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const userIsLoggedIn = () => {
+    // user info can be loaded after refresh
+    return !!window.localStorage.getItem('token'); // !! : cast to boolean
+ }
+  const [isLoggedIn, setIsLoggedIn] = useState(userIsLoggedIn());
   const login = () => {
     setIsLoggedIn(true);
   };
   const logout = () => {
     setIsLoggedIn(false);
+    localStorage.setItem('token', '');
   };
   const food = {
     //formData:{ 

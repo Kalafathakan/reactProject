@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MenuAPIForAdmin from '../components/MenuAPIForAdmin'
+import MenuAPIForAdmin from '../components/AdminMenuAPI'
 
 type Props = {}
 
