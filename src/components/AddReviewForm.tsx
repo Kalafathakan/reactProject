@@ -12,19 +12,9 @@ const stars = [
     rating: "5"
   },
   {
-    label: "4.5 Stars",
-    value: "4.5",
-    rating: "4.5"
-  },
-  {
     label: "4 Stars",
     value: "4",
     rating: "4"
-  },
-  {
-    label: "3.5 Stars",
-    value: "3.5",
-    rating: "3.5"
   },
   {
     label: "3 Stars",
@@ -32,34 +22,14 @@ const stars = [
     rating: "3"
   },
   {
-    label: "2.5 Stars",
-    value: "2.5",
-    rating: "2.5"
-  },
-  {
     label: "2 Stars",
     value: "2",
     rating: "2"
   },
   {
-    label: "1.5 Stars",
-    value: "1.5",
-    rating: "1.5"
-  },
-  {
     label: "1 Star",
     value: "1",
     rating: "1"
-  },
-  {
-    label: "Half a Star",
-    value: "0.5",
-    rating: "0.5"
-  },
-  {
-    label: "No Star",
-    value: "0",
-    rating: "0"
   }
 ];
 

@@ -11,19 +11,9 @@ const stars = [
     rating: "1"
   },
   {
-    label: "1.5 Stars",
-    value: "1.5",
-    rating: "1.5"
-  },
-  {
     label: "2 Stars",
     value: "2",
     rating: "2"
-  },
-  {
-    label: "2.5 Stars",
-    value: "2.5",
-    rating: "2.5"
   },
   {
     label: "3 Stars",
@@ -31,19 +21,9 @@ const stars = [
     rating: "3"
   },
   {
-    label: "3.5 Stars",
-    value: "3.5",
-    rating: "3.5"
-  },
-  {
     label: "4 Stars",
     value: "4",
     rating: "4"
-  },
-  {
-    label: "4.5 Stars",
-    value: "4.5",
-    rating: "4.5"
   },
   {
     label: "5 Stars",
