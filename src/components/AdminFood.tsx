@@ -14,13 +14,14 @@ type FoodProps = {
     quantity: number
     //onQuantityChange: (id: String, data: number) => void;
     UpdateMenuItem: (selectedFoodId: String) => void;
+    deleteMenuItem: (selectedFoodId: String) => void;
 //  };
 };
 
 
 
 
-const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,description}: FoodProps,   ) => {
+const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,description,deleteMenuItem }: FoodProps,   ) => {
 
   //const [foodForForm, setFoodForForm] = useState<FoodProps[]>([]);
   // const UpdateMenuItem = (mydata : String) => {
@@ -50,9 +51,10 @@ const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,descriptio
         <p className="food-desc">{description}</p>
 
         
-        <button  className="btn btn-primary" onClick={() => UpdateMenuItem(food_id)}   >Submit</button>
+        <button  className="btn btn-warning me-2" onClick={() => UpdateMenuItem(food_id)}   >Edit</button>
+        <button  className="btn btn-danger" onClick={() => deleteMenuItem(food_id)}   >Delete</button>
         {/* <a href="" className="menu-btn" onClick={() => UpdateMenuItem(food.food_id)}>Update</a> */}
-        <a href="" className="menu-btn">Delete</a>
+        
       </div>
     </div>
   );
