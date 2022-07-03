@@ -19,6 +19,7 @@ type MenuType = {
   quantity: number
  // onQuantityChange: (id: String, data: number) => void;
  UpdateMenuItem: (selectedFoodId: String) => void;
+ deleteMenuItem: (selectedFoodId: String) => void;
 };
 
 export type foodForFormType = {
@@ -70,9 +71,19 @@ const MenuAPIForAdmin = () => {
      
    }
 
+   const MdeleteMenuItem = (foodId : String) => {
+    console.log(foodId)
+   // getDataById(foodId)
+    
+  }
 
-   
 
+   const MupdateFood = (id:string) => {
+    console.log(id)
+   }
+   const MdeleteFood = (id:string) => {
+    console.log(id)
+   }
 
 
   const sendGetRequest = async () => {
@@ -191,7 +202,7 @@ const MenuAPIForAdmin = () => {
       </div>      
       <br></br>*/}
       
-    <MenuFormForAdmin food={foodForForm} />
+    <MenuFormForAdmin updateFood={MupdateFood} deleteFood={MupdateFood} />
 
 
       <Search filterMenu={filterMenu} />
@@ -199,35 +210,35 @@ const MenuAPIForAdmin = () => {
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Starters") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          (food.category == "Starters") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
         ))}
       </div>
       <h2>Mains</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Mains") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          (food.category == "Mains") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
         ))}
       </div>
       <h2>Curries</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Curries") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          (food.category == "Curries") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
         ))}
       </div>
       <h2>Desserts</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Desserts") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          (food.category == "Desserts") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
         ))}
       </div>
       <h2>Beverages</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
         .map((food) => (
-          (food.category == "Beverages") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          (food.category == "Beverages") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
         ))}
       </div>
     </div>
