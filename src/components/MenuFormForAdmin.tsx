@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useContext, useState } from 'react'
 import axios from 'axios';
 import FormContext from '../context/FormContext';
 
@@ -20,6 +20,8 @@ type MenuType = {
 
 
   const MenuFormForAdmin = ({food}: MenuType) => {
+    const fr = useContext(FormContext)
+    
 
     const [formData2, setFormData] = useState({
         food_id: `${food.food_id}`,
@@ -92,14 +94,14 @@ type MenuType = {
                       <input type="text" className="form-control rounded-4" placeholder='Name'
                         name='name'
                         required
-                        value={food_name}
+                        value={`${fr.formData.food_name}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="email" className="form-control rounded-4" placeholder='Email Address'
                         name='email'
-                        value={price}
+                        value={`${fr.formData.food_name}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="email">Email address</label>
                     </div>
@@ -107,7 +109,7 @@ type MenuType = {
                       <input type="password" className="form-control rounded-4" placeholder='Password'
                         name='password'
 
-                        value={description}
+                        value={`${fr.formData.food_name}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Password</label>
                     </div>
@@ -115,7 +117,7 @@ type MenuType = {
                     <div className="form-floating mb-3">
                       <input type="password" className="form-control rounded-4" placeholder='Confirm Password'
                         name='password2'
-                        value={category}
+                        value={`${fr.formData.food_name}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="password">Confrim Password</label>
                     </div>

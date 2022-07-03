@@ -47,10 +47,11 @@ const food = {
     active: '',
     image: '',
     quantity: 0
-    }
+    },
+    setMyData: () => null
   };
 
 
-const FormContext = createContext<foodForFormType | null >(null)
+const FormContext = createContext<foodForFormType>(food )
 
 export default FormContext
