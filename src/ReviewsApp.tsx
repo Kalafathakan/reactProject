@@ -14,10 +14,10 @@ import './App.css';
 
 //declaring ReviewsListProps properties as an array
 type ReviewListProps = {
-    name: string;
-    rating: string;
-    review: string;
-    id: string;
+    name: String;
+    rating: String;
+    review: String;
+    id: String;
 }[];
 
 const App = () => {
@@ -86,7 +86,7 @@ const App = () => {
                         review={rl.review}
                         id={rl.id}
                         key={rl.id.toString()}
-                        onAdd={function (id: string): void {
+                        onAdd={function (id: String): void {
 
                         }} />
                 ))}
