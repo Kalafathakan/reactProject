@@ -12,14 +12,12 @@ type FoodProps = {
     active: String,
     image: String,
     quantity: number
-  //  onQuantityChange: (id: String, data: number) => void;
+    //onQuantityChange: (id: String, data: number) => void;
     UpdateMenuItem: (selectedFoodId: String) => void;
 //  };
 };
 
-type myf = {
-  UpdateMenuItem: (selectedFoodId: String) => void;
-}
+
 
 
 const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,description}: FoodProps,   ) => {
@@ -52,7 +50,7 @@ const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,descriptio
         <p className="food-desc">{description}</p>
 
         
-        <button  className="btn btn-primary" onClick={() => UpdateMenuItem("5")}   >Submit</button>
+        <button  className="btn btn-primary" onClick={() => UpdateMenuItem(food_id)}   >Submit</button>
         {/* <a href="" className="menu-btn" onClick={() => UpdateMenuItem(food.food_id)}>Update</a> */}
         <a href="" className="menu-btn">Delete</a>
       </div>
