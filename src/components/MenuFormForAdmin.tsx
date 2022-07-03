@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react'
 import axios from 'axios';
+import FormContext from '../context/FormContext';
 
 type MenuType = {
     food:{
@@ -12,8 +13,8 @@ type MenuType = {
     active: String,
     image: String,
     quantity: number
-    onQuantityChange: (id: String, data: number) => void;
-    UpdateMenuItem: (selectedFoodId: String) => void;
+   // onQuantityChange: (id: String, data: number) => void;
+   // UpdateMenuItem: (selectedFoodId: String) => void;
 };
   };
 
@@ -76,6 +77,7 @@ type MenuType = {
 
     return (
       <div>
+       
      <div className="container mt-5 mb-5 w-100    ">
         <div className="modal-lg  mx-auto  " >
           <div className="modal-lg-dialog  ">

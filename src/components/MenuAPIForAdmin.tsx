@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import axios from 'axios';
 import Food from "./Food";
 import Search from "./Search";
 import MenuFormForAdmin from "./MenuFormForAdmin";
 import FoodForAdmin from "./FoodForAdmin";
+import FormContext from "../context/FormContext";
+
 
 type MenuType = {
   _id: String,
@@ -19,7 +21,7 @@ type MenuType = {
  UpdateMenuItem: (selectedFoodId: String) => void;
 };
 
-type MenuType2 = {
+export type foodForFormType = {
   _id: String,
   food_id: String,
   food_name: String,
@@ -30,34 +32,46 @@ type MenuType2 = {
   image: String,
   quantity: number
 //  onQuantityChange: (id: String, data: number) => void;
-  UpdateMenuItem: (selectedFoodId: String) => void;
+  //UpdateMenuItem: (selectedFoodId: String) => void;
 };
 
 const MenuAPIForAdmin = () => {
   const [search, setSearch] = useState('');
   const [foods, setFoods] = useState<MenuType[]>([]);
-  const MUpdateMenuItem = (mydata : String) => {
-     console.log(mydata)
-    //food.UpdateMenuItem(mydata)
+  const [foodForForm, setFoodForForm] = useState<foodForFormType>({
+    _id: "",
+    food_id: "",
+    food_name: "",
+    price: "",
+    description: "",
+    category: "",
+    active: "",
+    image: "",
+    quantity: 0
+ 
+    //UpdateMenuItem: MUpdateMenuItem
+    
+    
+    // function (selectedFoodId: String): void {
+    //   throw new Error("Function not implemented.");}
+    }
+    );
+
+  //const formMenu = useContext(FormContext) as unknown as foodForFormType
+
+ const fr = useContext(FormContext)
+
+
+
+
+  const MUpdateMenuItem = (foodId : String) => {
+     console.log(foodId)
+     getDataById(foodId)
+     
    }
-    const [foodForForm, setFoodForForm] = useState<MenuType2>({
-      _id: "",
-      food_id: "",
-      food_name: "",
-      price: "",
-      description: "",
-      category: "",
-      active: "",
-      image: "",
-      quantity: 0,
+
+
    
-      UpdateMenuItem: MUpdateMenuItem
-      
-      
-      // function (selectedFoodId: String): void {
-      //   throw new Error("Function not implemented.");}
-      }
-      );
 
 
 
@@ -68,6 +82,20 @@ const MenuAPIForAdmin = () => {
       );
       setFoods(response.data);
       console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getDataById = async (id:String) => {
+    try {
+      const response = await axios.get(
+        `https://shielded-depths-40144.herokuapp.com/foods/${id}`
+      );
+     // setFoodForForm(response.data);
+     fr?.setMyData(response.data);
+      console.log("data degisti mi")
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -163,6 +191,8 @@ const MenuAPIForAdmin = () => {
       </div>      
       <br></br>*/}
       
+    <MenuFormForAdmin food={foodForForm} />
+
 
       <Search filterMenu={filterMenu} />
       <h2>Starters</h2>

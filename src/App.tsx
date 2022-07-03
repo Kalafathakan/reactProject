@@ -19,6 +19,7 @@ import { useState } from 'react';
 import MyPage from './pages/MyPage';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Admin from './pages/Admin';
+import FormContext, { foodForFormType } from './context/FormContext';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,11 +29,53 @@ const App = () => {
   const logout = () => {
     setIsLoggedIn(false);
   };
+  const food = {
+    //formData:{ 
+    _id: '',
+    food_id: '',
+    food_name: '',
+    price: '',
+    description: '',
+    category: '',
+    active: '',
+    image: '',
+    quantity: 0
+   // }
+  };
+  
+  type foodForFormType1 = {
+    //formData:{ 
+    _id: String,
+    food_id: String,
+    food_name: String,
+    price: String,
+    description: String,
+    category: String,
+    active: String,
+    image: String,
+    quantity: number
+  //  onQuantityChange: (id: String, data: number) => void;
+    //UpdateMenuItem: (selectedFoodId: String) => void;
+   // }
+  };
+
+  const [formData, setFormData] = useState<foodForFormType1 >(food)
+
+  const setMyData = (data:foodForFormType1) => {
+    setFormData(data);
+  };
+
+  //const { _id, food_id, food_name, price, description, category,active,image,quantity} = formData;
+
+
+  // const { } = formData
+
   return (
     <div>
        <AuthContext.Provider
         value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
       > 
+      <FormContext.Provider value = {{ formData,setMyData } }> 
           <Navigation />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -52,6 +95,7 @@ const App = () => {
             </Route>
           </Routes>
           <Footer />
+          </FormContext.Provider>
           </AuthContext.Provider>
     </div>
     
