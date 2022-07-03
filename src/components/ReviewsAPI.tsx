@@ -4,9 +4,6 @@ import CustomerReviews from "./CustomerReviews";
 import AddReviewForm from "./AddReviewForm";
 import SearchRating from "./SearchRating";
 
-//used to create a unique ID
-import { v4 as uuidv4 } from 'uuid';
-
 type ReviewListProps = {
     name: String,
     rating: String,
