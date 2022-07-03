@@ -19,7 +19,7 @@ import { useState } from 'react';
 import MyPage from './pages/MyPage';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Admin from './pages/Admin';
-import FormContext, { foodForFormType } from './context/FormContext';
+import FormContext, { foodForFormType } from './context/AdminFormContext';
 
 const App = () => {
 

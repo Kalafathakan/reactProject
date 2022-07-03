@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuAPIForAdmin from '../components/MenuAPIForAdmin';
+import MenuAPIForAdmin from '../components/AdminMenuAPI';
 import AdminNavigation from '../pages/AdminNavigation';
 
 

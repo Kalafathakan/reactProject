@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import axios from 'axios';
 import Food from "./Food";
 import Search from "./Search";
-import MenuFormForAdmin from "./MenuFormForAdmin";
-import FoodForAdmin from "./FoodForAdmin";
-import FormContext from "../context/FormContext";
+import MenuFormForAdmin from "./AdminFoodForm";
+import FoodForAdmin from "./AdminFood";
+import FormContext from "../context/AdminFormContext";
 
 
 type MenuType = {
