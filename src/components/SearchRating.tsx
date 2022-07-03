@@ -6,6 +6,9 @@ type SearchRatingProps = {
 
 const stars = [
   {
+    label: "Select Rating"
+  },
+  {
     label: "1 Star",
     value: "1",
     rating: "1"
@@ -35,13 +38,12 @@ const stars = [
 //search by rating - adapted from Vishnu's search component
 
 const Search = (props: SearchRatingProps) => {
-  const [searchRating, setSearchRating] = useState('');
+  const [searchRating, setSearchRating] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchRating(e.target.value);
     props.filterRating(e.target.value);
   };
-
 
   return (
     <div id="searchbar">
@@ -52,15 +54,6 @@ const Search = (props: SearchRatingProps) => {
         value={searchRating}
         onChange={handleChange}
       />
-
-      {/* Tried to make it a dropdown of options
-      
-      <select value={searchRating}>
-        <option>Select Rating</option>
-        {stars.map((star) => (
-          <option value={star.value} >{star.label} </option>
-        ))}
-      </select> */}
     </div>
   );
 };
