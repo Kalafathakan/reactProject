@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 
 type SearchRatingProps = {
   filterRating: (rating: string) => void
@@ -56,28 +56,35 @@ const stars = [
 
 const Search = (props: SearchRatingProps) => {
   const [searchRating, setSearchRating] = useState('');
+  const [rating, setRating] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchRating(e.target.value);
     props.filterRating(e.target.value);
   };
+
+    //you automatically get event object just like event listeners in js
+    const handleRatingChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+      console.log(e);
+      setRating(e.target.value);
+    };
+
   return (
     <div id="searchbar">
       Search by Rating: &nbsp;
-       <input
+      <select value={searchRating} onChange={handleRatingChange}>
+        <option>Select Rating</option>
+        {stars.map((star) => (
+          <option value={star.value} >{star.label} </option>
+        ))}
+      </select>
+
+      {/*       <input
         type='text'
         placeholder='Search by Rating'
         value={searchRating}
         onChange={handleChange}
-      />
-
-      {/* --currently doesn't work for dropdown menu--      
-          <select value={searchRating} onChange={handleRatingChange}>
-          <option>Select Rating</option>
-          {stars.map((star) => (
-            <option value={star.value}>{star.label}</option>
-        ))}
-      </select> */}
+      /> */}
     </div>
   );
 };
