@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-type Props = {}
+import AuthContext, { AuthContextType } from '../context/AuthContext';
 
-type State = {}
-
-export default class AdminNavigation extends Component<Props, State> {
-  state = {}
-
-  render() {
+const AdminNavigation = () => {
+  const auth = useContext(AuthContext) as AuthContextType;
+    
     return (
+      
         <div>
       
       <header className=" bg-dark text-white col-5">
@@ -28,8 +25,8 @@ export default class AdminNavigation extends Component<Props, State> {
  </div>
  <div className='col-5'>
         <div className=" me-0  ">
-          <NavLink to="/login"  type="button" className="btn btn-outline-light me-2">Login</NavLink>
-          <NavLink to="/register" type="button" className="btn btn-warning">Register</NavLink>
+          <button type="button" className="btn btn-warning" onClick={auth.logout }> Log out</button>
+        
         </div>
       </div>
     </div>
@@ -37,4 +34,5 @@ export default class AdminNavigation extends Component<Props, State> {
       </div>
     )
   }
-}
+
+  export default AdminNavigation;
