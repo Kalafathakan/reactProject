@@ -18,18 +18,24 @@ type MenuType = {
 };
   };
 
+  type updateDeleteType = {
 
-  const MenuFormForAdmin = ({food}: MenuType) => {
+    updateFood : (id:string) => void;
+    deleteFood: (id:string) => void;
+  }
+
+
+  const MenuFormForAdmin = ({updateFood,deleteFood }: updateDeleteType) => {
     const fr = useContext(FormContext)
     
 
     const [formData2, setFormData] = useState({
-        food_id: `${food.food_id}`,
-        food_name: `${food.food_name}`,
-        price: `${food.price}`,
-        description: `${food.description}`,
-        category: `${food.category}`,
-        image: `${food.image}`
+        food_id: '',
+        food_name: '',
+        price: '',
+        description: '',
+        category: '',
+        image: ''
       });
 
       const { food_id, food_name, price, description,category,image } = formData2;
@@ -47,35 +53,35 @@ type MenuType = {
         let formValid = true;
    
     
-        if (formValid) {
+        // if (formValid) {
     
     
-          let config = {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          };
+        //   let config = {
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //   };
     
-          let data = {
-            food_id: food_id,
-            food_name: food_name,
-            price: price,
+        //   let data = {
+        //     food_id: food_id,
+        //     food_name: food_name,
+        //     price: price,
 
-            description: description,
-            category: category,
-            image: image
-          };
-          try {
-            const response = await axios.put(
-              `https://shielded-depths-40144.herokuapp.com/foods/${food.food_id}`,
-              data,
-              config
-            );
+        //     description: description,
+        //     category: category,
+        //     image: image
+        //   };
+        //   try {
+        //     const response = await axios.put(
+        //       `https://shielded-depths-40144.herokuapp.com/foods/${food.food_id}`,
+        //       data,
+        //       config
+        //     );
     
-          } catch (e: any) {
-            console.log('error ', e.message);
-          }
-        }
+        //   } catch (e: any) {
+        //     console.log('error ', e.message);
+        //   }
+        // }
       };
 
     
@@ -141,16 +147,16 @@ type MenuType = {
                       <label htmlFor="image">Image</label>
                     </div>
                     <div className="col-9 mx-auto">
-                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-warning rounded-pill" type="submit">Update
+                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-warning rounded-pill" onClick={() =>updateFood(`${fr.formData.food_id}`) } type="submit">Update
                       </button>
                       </div>
                       <div className="col-9 mx-auto">
-                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-success rounded-pill" type="submit">Create
+                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-success rounded-pill" onClick={() =>deleteFood(`${fr.formData.food_id}`) } type="submit">Create
                       </button>
                       </div>
                     <div className="w-100"></div>
                     
-                  
+                    
                   </div>
                 </form>
               </div>

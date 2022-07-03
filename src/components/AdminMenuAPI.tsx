@@ -78,8 +78,12 @@ const MenuAPIForAdmin = () => {
   }
 
 
-   
-
+   const MupdateFood = (id:string) => {
+    console.log(id)
+   }
+   const MdeleteFood = (id:string) => {
+    console.log(id)
+   }
 
 
   const sendGetRequest = async () => {
@@ -198,7 +202,7 @@ const MenuAPIForAdmin = () => {
       </div>      
       <br></br>*/}
       
-    <MenuFormForAdmin food={foodForForm} />
+    <MenuFormForAdmin updateFood={MupdateFood} deleteFood={MupdateFood} />
 
 
       <Search filterMenu={filterMenu} />
