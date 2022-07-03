@@ -6,7 +6,6 @@ import '../App.css';
 const Reviews = () => {
     return (
         <div className='page-style-hk'>
-          <h1 id="topics-hk">Menu</h1>
           <ReviewsAPI />
         </div>
       );
