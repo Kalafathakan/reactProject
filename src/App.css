@@ -359,6 +359,9 @@ button {
   text-decoration: underline;
 }
 
+#add-r-title{
+  text-decoration: underline;
+}
 /* COMPONENT STYLES -------------------- */
 
 .filter-search {

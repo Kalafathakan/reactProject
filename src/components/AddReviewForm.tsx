@@ -89,7 +89,7 @@ const AddReviewForm = (props: AddProps) => {
     <div className="reviews-form">
       <form onSubmit={handleSubmit}>
         <fieldset>
-          <legend>Add a Review</legend>
+          <legend id='add-r-title'>Add a Review</legend>
           {/* <two way data binding with value attribute /> */}
           <span>Name: </span>
           <input
