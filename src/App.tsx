@@ -12,7 +12,6 @@ import Deals from './pages/Deals';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Cart from './pages/Cart';
 import Thankyou from './pages/Thankyou';
 import AuthContext from './context/AuthContext';
 import { useState } from 'react';
@@ -86,7 +85,6 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='menu' element={<Menu />} />
-            <Route path='cart' element={<Cart />} />
             <Route path='bookings' element={<Bookings />} />
             <Route path='thankyou' element={<Thankyou />} />
             <Route path='orders' element={<Orders />} />
