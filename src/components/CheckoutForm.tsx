@@ -76,12 +76,12 @@ const AddOrderForm = (props: AddProps) => {
 
   return (
     //displaying the form
-    <div className="reviews-form">
+    <div className="checkout-form">
       <hr />
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Place order</legend>
-          <span>Name: </span>
+          <label>Name: </label><br />
           <input
             type='text'
             value={name}
@@ -89,8 +89,8 @@ const AddOrderForm = (props: AddProps) => {
             placeholder='Enter Your Name'
             required
           />
-          <br />
-          <span>Phone Number: </span>
+          <br /><br />
+          <label>Phone Number: </label><br />
           <input
             type='text'
             value={phone}
