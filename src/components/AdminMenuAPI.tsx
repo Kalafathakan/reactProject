@@ -88,7 +88,7 @@ const MenuAPIForAdmin = () => {
     console.log("delete this food")
     console.log(foodId)
     // getDataById(foodId)
-
+    sendDeleteRequest(foodId)
 
   }
 
@@ -96,6 +96,7 @@ const MenuAPIForAdmin = () => {
   const MupdateFood = (id: string) => {
     console.log("update this data")
     console.log(fr.formData)
+    sendPutRequest(id,fr.formData)
   }
   const McreateFood = (id: string) => {
     console.log("create this data")
@@ -144,10 +145,10 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const sendDeleteRequest = async () => {
+  const sendDeleteRequest = async (id:string) => {
     try {
       const response = await axios.delete(
-        'https://shielded-depths-40144.herokuapp.com/foods/25'
+        `https://shielded-depths-40144.herokuapp.com/foods/${id}`
       );
 
       console.log(response);
@@ -178,19 +179,20 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const sendPutRequest = async () => {
+  const sendPutRequest = async (foodid:string, data:addFoodType) => {
     try {
       const response = await axios.put(
-        'https://shielded-depths-40144.herokuapp.com/foods/25',
-        {
-          food_id: '25',
-          food_name: 'Pasta',
-          price: '10.00',
-          description: 'Made from a mixture of flour, eggs, and water that is formed into different shapes and then boiled.',
-          category: 'Mains',
-          active: 'Yes',
-          image: 'NoPicAv.png'
-        }
+        `https://shielded-depths-40144.herokuapp.com/foods/${foodid}`,
+        data
+        // {
+        //   food_id: '25',
+        //   food_name: 'Pasta',
+        //   price: '10.00',
+        //   description: 'Made from a mixture of flour, eggs, and water that is formed into different shapes and then boiled.',
+        //   category: 'Mains',
+        //   active: 'Yes',
+        //   image: 'NoPicAv.png'
+        // }
       );
 
       console.log(response);
