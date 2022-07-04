@@ -68,19 +68,6 @@ const ReviewsAPI = () => {
     };
 
     useEffect(() => {
-      fetch('https://shielded-depths-40144.herokuapp.com/reviews')
-        .then((response) => response.json())
-  
-        .then((responseData) => {
-          setReviewsList(responseData);
-  
-          console.log(responseData);
-        });
-  
-      axios.get('https://shielded-depths-40144.herokuapp.com/reviews').then((response) => {
-        setReviewsList(response.data);
-        console.log(response);
-      });
       sendGetRequest();
     }, []);
 

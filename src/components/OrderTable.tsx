@@ -9,13 +9,15 @@ type OrderProps = {
 
 const OrderTable = (props: OrderProps) => {
   return (
-        <tr>
-          <td>{props.name}</td>
-          <td>{props.phone}</td>
-          <td>{props.cart}</td>
-          <td>${props.total}</td>
-          <td>{props.date}</td>
-        </tr>
+    <tbody>
+      <tr>
+        <td>{props.name}</td>
+        <td>{props.phone}</td>
+        <td>{props.cart}</td>
+        <td>${props.total}</td>
+        <td>{props.date}</td>
+      </tr>
+    </tbody>
   );
 };
 

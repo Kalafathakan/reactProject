@@ -70,6 +70,7 @@ const Login = () => {
         );
         console.log("my token " + response.data.token)
         console.log(response.data);
+        localStorage.setItem('email', data.email);
         localStorage.setItem('token', response.data.token);
         auth.login();
         navigate('/mypage');

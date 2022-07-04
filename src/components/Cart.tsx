@@ -12,6 +12,7 @@ type CartProps = {
 const Cart = ({ cartItems, addToCart, removeFromCart }: CartProps) => {
 
   type OrderProps = {
+    email: string,
     name: string,
     phone: string,
     cart: string,
@@ -26,10 +27,10 @@ const Cart = ({ cartItems, addToCart, removeFromCart }: CartProps) => {
   localStorage.setItem("total", totalVal);
   
     // Add an order
-      const handleAddOrder = (name: string, phone: string, cart: string, date: string) => {
+      const handleAddOrder = (email: string, name: string, phone: string, cart: string, date: string) => {
         setOrders((prevState) => [
             ...prevState,
-            { name: name, phone: phone, cart: cart, total: totalVal, date: date },
+            { email: email, name: name, phone: phone, cart: cart, total: totalVal, date: date },
         ]);
     };
 

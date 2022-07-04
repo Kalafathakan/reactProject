@@ -65,19 +65,6 @@ const MenuAPI = () => {
   };
 
   useEffect(() => {
-    fetch('https://shielded-depths-40144.herokuapp.com/foods')
-      .then((response) => response.json())
-
-      .then((responseData) => {
-        setFoods(responseData);
-
-        console.log(responseData);
-      });
-
-    axios.get('https://shielded-depths-40144.herokuapp.com/foods').then((response) => {
-      setFoods(response.data);
-      console.log(response);
-    });
     sendGetRequest();
   }, []);
 

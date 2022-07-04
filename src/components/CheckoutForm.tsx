@@ -5,20 +5,21 @@ import { useNavigate } from "react-router-dom";
 
 //declaring AddProps with onAdd function
 type AddProps = {
-  onAdd: (name: string, phone: string, cart: string, total: string, date: string) => void;
+  onAdd: (email: string, name: string, phone: string, cart: string, total: string, date: string) => void;
 }
 
 
 //declaring JSX element
-const AddReviewForm = (props: AddProps) => {
+const AddOrderForm = (props: AddProps) => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
   const cart = useState(localCart as CartItemType[]);
+  const email = localStorage.getItem('email');
   const total = localStorage.getItem("total");
   const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
   var cartList = "";
 
   cart[0].forEach((food) => {
@@ -44,11 +45,12 @@ const AddReviewForm = (props: AddProps) => {
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     //by default it will submit the form, so prevent
     e.preventDefault();
-    props.onAdd(name, phone, cartList, total!, date);
+    props.onAdd(email!, name, phone, cartList, total!, date);
     setName('');
     setPhone('');
 
     let data = {
+      email: email,
       name: name,
       phone: phone,
       cart: cartList,
@@ -63,7 +65,7 @@ const AddReviewForm = (props: AddProps) => {
         console.log(response.data);
 
         // Clear cart in local storage
-        localStorage.clear();
+        localStorage.removeItem('cart');
 
         // Go to orders page
         navigate("/orders");
@@ -107,4 +109,4 @@ const AddReviewForm = (props: AddProps) => {
   );
 };
 
-export default AddReviewForm;
+export default AddOrderForm;
