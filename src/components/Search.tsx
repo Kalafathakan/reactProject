@@ -16,7 +16,6 @@ const Search = (props: SearchProps) => {
   };
   return (
     <div id="menu-searchbar">
-      <b>Search: </b>
       <input
         type='text'
         placeholder='Search for food'
