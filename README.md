@@ -32,7 +32,7 @@ Vishnu Pillai / N01454618:
 
 -Order Page
 
--Cart Page
+-Cart Component
 
 Nicholas Keller-Sedan / N01467921:
 
