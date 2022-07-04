@@ -6,7 +6,7 @@ type SearchRatingProps = {
 
 const stars = [
   {
-    label: "Select Rating",
+    label: "All Rating",
     value: ""
   },
   {
