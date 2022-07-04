@@ -114,7 +114,7 @@ const MenuAPIForAdmin = () => {
 
     }
     sendPostRequest(newData)
-
+    sendGetRequest()
   }
 
 
