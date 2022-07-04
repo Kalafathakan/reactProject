@@ -39,3 +39,5 @@ Nicholas Keller-Sedan / N01467921:
 -Deals & Promotions Page
 
 -Reviews Page
+
+-Gallery
