@@ -50,8 +50,13 @@ const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,descriptio
         <p className="food-desc">{description}</p>
 
         
-        <button  className="btn btn-warning me-2" onClick={() => UpdateMenuItem(food_id)}   >Edit</button>
-        <button  className="btn btn-danger" onClick={() => deleteMenuItem(food_id)}   >Delete</button>
+        {/* <button  className="btn btn-warning me-2" onClick={() => UpdateMenuItem(food_id)}   >Edit</button>
+        <button  className="btn btn-danger" onClick={() => deleteMenuItem(food_id)}   >Delete</button> */}
+          <button  className="btn btn-warning me-2" onClick={() => {  (window.confirm('Are you sure you wish to update this food?')) ? UpdateMenuItem(food_id) : console.log("process cancel") }}   >Edit</button>
+        <button  className="btn btn-danger" onClick={() => {  (window.confirm('Are you sure you wish to delete this food?')) ? deleteMenuItem(food_id) : console.log("process cancel") }}   >Delete</button>
+        {/* <button className='btn btn-danger' onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) deleteMenuItem(food_id) } } > Delete</button>
+        <button className='btn btn-danger' onClick={() => {  (window.confirm('Are you sure you wish to delete this item?')) ? deleteMenuItem(food_id) : console.log("process cancel") } } > Delete</button> */}
+
         {/* <a href="" className="menu-btn" onClick={() => UpdateMenuItem(food.food_id)}>Update</a> */}
         
       </div>

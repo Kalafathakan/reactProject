@@ -154,11 +154,15 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
                       <label htmlFor="description">Description</label>
                     </div>
                     <div className="col-6 mx-auto">
-                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() => updateFood(`${fr.formData.food_id}`)} type="submit">Update
+                      {/* <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() => updateFood(`${fr.formData.food_id}`)} type="submit">Update
+                      </button> */}
+                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() =>{  (window.confirm('Are you sure you wish to update this food?')) ? updateFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="submit">Update
                       </button>
                     </div>
                     <div className="col-6 mx-auto">
-                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => createFood(`${fr.formData.food_id}`)} type="button">Create
+                      {/* <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => createFood(`${fr.formData.food_id}`)} type="button">Create
+                      </button> */}
+                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => {  (window.confirm('Are you sure you wish to create a new food?')) ?createFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="button">Create
                       </button>
                     </div>
                     <div className="w-100"></div>
