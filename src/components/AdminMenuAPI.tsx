@@ -86,6 +86,7 @@ const MenuAPIForAdmin = () => {
    const McreateFood = (id:string) => {
     console.log("create this data")
     console.log(fr.formData)
+    sendPostRequest(fr.formData)
    }
 
 
@@ -127,19 +128,20 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const sendPostRequest = async () => {
+  const sendPostRequest = async (data:foodForFormType) => {
     try {
       const response = await axios.post(
         'https://shielded-depths-40144.herokuapp.com/foods',
-        {
-          food_id: '25',
-          food_name: 'Tacos',
-          price: '8.00',
-          description: 'A crispy or soft corn or wheat tortilla that is folded or rolled and stuffed with a mixture.',
-          category: 'Mains',
-          active: 'Yes',
-          image: 'Tacos.jpg'
-        }
+       { data}
+        // {
+        //   food_id: '25',
+        //   food_name: 'Tacos',
+        //   price: '8.00',
+        //   description: 'A crispy or soft corn or wheat tortilla that is folded or rolled and stuffed with a mixture.',
+        //   category: 'Mains',
+        //   active: 'Yes',
+        //   image: 'Tacos.jpg'
+        // }
       );
 
       console.log(response);

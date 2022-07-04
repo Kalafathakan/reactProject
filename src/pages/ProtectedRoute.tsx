@@ -8,6 +8,10 @@ const ProtectedRoute = () => {
     return <Navigate to='/login' replace />;
   }
 
+  if (!auth.isAdmin && !auth.isLoggedIn) {
+    return <Navigate to='/mypage' replace />;
+  }
+
   return <Outlet />;
 };
 export default ProtectedRoute;

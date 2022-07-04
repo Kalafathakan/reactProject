@@ -43,8 +43,8 @@ const App = () => {
       decodeddata = decode(token)
       let accountType = decodeddata.user.accountType
 
-      if (accountType === '') {
-      //if (accountType === 'admin') {
+     // if (accountType === '') {
+      if (accountType === 'admin') {
        // setIsAdmin(true)
         return true
       }
@@ -59,6 +59,7 @@ const App = () => {
   };
   const logout = () => {
     setIsLoggedIn(false);
+    setIsAdmin(false)
     localStorage.setItem('token', '');
   };
 
@@ -79,12 +80,12 @@ const App = () => {
       let email = decodeddata.user.email
       console.log(accountType)
       console.log(email)
-      if (accountType === '') {
-     // if (accountType === 'admin') {
+     // if (accountType === '') {
+      if (accountType === 'admin') {
         setIsAdmin(true)
         // return true
       } else {
-        setIsAdmin(true)
+        setIsAdmin(false)
       }
     } else {
       setIsAdmin(false)
