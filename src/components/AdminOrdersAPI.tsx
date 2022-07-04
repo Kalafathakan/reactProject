@@ -230,11 +230,11 @@ const AdminOrdersAPI = () => {
 
 
       <SearchForOrders filterMenu={filterMenu} />
-      <table className="table">
+      <table className="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">email</th>
+      <th style={{"width":"7%"}} scope="col">#</th>
+      <th style={{"width":"20%"}} scope="col">email</th>
       <th scope="col">name</th>
       <th scope="col">phone</th>
       <th scope="col">cart</th>
@@ -248,7 +248,7 @@ const AdminOrdersAPI = () => {
         {orders.filter((f) => f.name.toLowerCase().includes(search.toLowerCase()))
           .map((order) => ( 
           <tr>
-          <td>{rowId +=1}</td>
+          <td  >{rowId +=1}</td>
           <td>{order.email}</td>
           <td>{order.name}</td>
           <td>{order.phone}</td>
