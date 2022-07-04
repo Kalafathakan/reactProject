@@ -11,7 +11,6 @@ const MyPage = (props: Props) => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     
-       
     
         // try {
          
@@ -25,16 +24,11 @@ const MyPage = (props: Props) => {
           
         // }
       }
-      
-
-
-
-
 
   return (
-    <div> 
+    <div className='page-style-hk'> 
           <form className="loginBox" onSubmit={(e) => onSubmit(e)}>
-    <div>MyPage</div>
+    <div>Welcome</div><br />
     <input type='submit' value='Log out' onClick={auth.logout} />
     </form>
     </div>

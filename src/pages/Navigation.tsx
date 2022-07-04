@@ -36,6 +36,11 @@ const Navigation = () => {
         <a id='navsec' className='navbarsection'>
           <NavLink to='/contact'>Contact Us</NavLink>
         </a>
+        {auth.isLoggedIn && (
+          <a id='navsec' className='navbarsection'>
+            <NavLink to='/mypage'>My Dashboard</NavLink>
+          </a>
+        )}
         {!auth.isLoggedIn && (
 
 

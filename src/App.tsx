@@ -96,6 +96,7 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route element={<ProtectedRoute />}>
             <Route path='/admin-menu' element={<Admin />} />
+            <Route path='/mypage' element={<MyPage />} />
             </Route>
           </Routes>
           <Footer />
