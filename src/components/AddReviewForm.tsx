@@ -99,7 +99,7 @@ const AddReviewForm = (props: AddProps) => {
             placeholder='Enter your Name'
             required
           />
-          <br></br>
+          <br></br><br></br>
           <span>Rating: </span>
           <select value={rating} onChange={handleRatingChange} required>
             <option value="">Select Rating</option>
@@ -107,7 +107,7 @@ const AddReviewForm = (props: AddProps) => {
               <option value={star.value}>{star.label}</option>
             ))}
           </select>
-          <br></br>
+          <br></br><br></br>
           <span>Review: </span>
           <textarea className='reviews-textarea'
             value={review}
@@ -117,8 +117,11 @@ const AddReviewForm = (props: AddProps) => {
             required
           />
           <br></br>
+          <div id='review-submit-b'>
           <button>Submit Review</button>
+          </div>
         </fieldset>
+        <hr></hr>
         <br></br>
       </form>
     </div>
