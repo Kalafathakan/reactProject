@@ -196,7 +196,7 @@ const MenuAPIForAdmin = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {/* These will be in the admin page instead }
       <div className="center">
         <button onClick={sendPostRequest}>Add Food</button>

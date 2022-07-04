@@ -146,7 +146,7 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
                     </div>
                     <div className="form-floating mb-3 " >
                       <textarea className="form-control rounded-4" placeholder='Description'
-                        style={{ height: '150px' }}
+                        style={{ height: '100px' }}
                         name='description'
 
                         defaultValue={`${fr.formData.description}`}
