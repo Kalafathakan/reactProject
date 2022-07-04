@@ -4,17 +4,17 @@ import { useState } from 'react';
 import React from 'react';
 type FoodProps = {
   //food: {
-    food_id: String,
-    food_name: String,
-    price: String,
-    description: String,
-    category: String,
-    active: String,
-    image: String,
+    food_id: string,
+    food_name: string,
+    price: string,
+    description: string,
+    category: string,
+    active: string,
+    image: string,
     quantity: number
     //onQuantityChange: (id: String, data: number) => void;
-    UpdateMenuItem: (selectedFoodId: String) => void;
-    deleteMenuItem: (selectedFoodId: String) => void;
+    UpdateMenuItem: (selectedFoodId: string) => void;
+    deleteMenuItem: (selectedFoodId: string) => void;
 //  };
 };
 

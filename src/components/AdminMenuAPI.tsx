@@ -8,29 +8,29 @@ import FormContext from "../context/AdminFormContext";
 
 
 type MenuType = {
-  _id: String,
-  food_id: String,
-  food_name: String,
-  price: String,
-  description: String,
-  category: String,
-  active: String,
-  image: String,
+  _id: string,
+  food_id: string,
+  food_name: string,
+  price: string,
+  description: string,
+  category: string,
+  active: string,
+  image: string,
   quantity: number
  // onQuantityChange: (id: String, data: number) => void;
- UpdateMenuItem: (selectedFoodId: String) => void;
- deleteMenuItem: (selectedFoodId: String) => void;
+ UpdateMenuItem: (selectedFoodId: string) => void;
+ deleteMenuItem: (selectedFoodId: string) => void;
 };
 
 export type foodForFormType = {
-  _id: String,
-  food_id: String,
-  food_name: String,
-  price: String,
-  description: String,
-  category: String,
-  active: String,
-  image: String,
+  _id: string,
+  food_id: string,
+  food_name: string,
+  price: string,
+  description: string,
+  category: string,
+  active: string,
+  image: string,
   quantity: number
 //  onQuantityChange: (id: String, data: number) => void;
   //UpdateMenuItem: (selectedFoodId: String) => void;
@@ -65,13 +65,14 @@ const MenuAPIForAdmin = () => {
 
 
 
-  const MUpdateMenuItem = (foodId : String) => {
+  const MUpdateMenuItem = (foodId : string) => {
      console.log(foodId)
      getDataById(foodId)
      
    }
 
-   const MdeleteMenuItem = (foodId : String) => {
+   const MdeleteMenuItem = (foodId : string) => {
+    console.log("delete this food")
     console.log(foodId)
    // getDataById(foodId)
     
@@ -79,10 +80,12 @@ const MenuAPIForAdmin = () => {
 
 
    const MupdateFood = (id:string) => {
-    console.log(id)
+    console.log("update this data")
+    console.log(fr.formData)
    }
-   const MdeleteFood = (id:string) => {
-    console.log(id)
+   const McreateFood = (id:string) => {
+    console.log("create this data")
+    console.log(fr.formData)
    }
 
 
@@ -98,7 +101,7 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const getDataById = async (id:String) => {
+  const getDataById = async (id:string) => {
     try {
       const response = await axios.get(
         `https://shielded-depths-40144.herokuapp.com/foods/${id}`
@@ -202,7 +205,7 @@ const MenuAPIForAdmin = () => {
       </div>      
       <br></br>*/}
       
-    <MenuFormForAdmin updateFood={MupdateFood} deleteFood={MupdateFood} />
+    <MenuFormForAdmin updateFood={MupdateFood} createFood={McreateFood} />
 
 
       <Search filterMenu={filterMenu} />

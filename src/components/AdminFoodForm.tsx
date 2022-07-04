@@ -4,14 +4,14 @@ import FormContext from '../context/AdminFormContext';
 
 type MenuType = {
     food:{
-    _id: String,
-    food_id: String,
-    food_name: String,
-    price: String,
-    description: String,
-    category: String,
-    active: String,
-    image: String,
+    _id: string,
+    food_id: string,
+    food_name: string,
+    price: string,
+    description: string,
+    category: string,
+    active: string,
+    image: string,
     quantity: number
    // onQuantityChange: (id: String, data: number) => void;
    // UpdateMenuItem: (selectedFoodId: String) => void;
@@ -21,36 +21,42 @@ type MenuType = {
   type updateDeleteType = {
 
     updateFood : (id:string) => void;
-    deleteFood: (id:string) => void;
+    createFood: (id:string) => void;
   }
 
 
-  const MenuFormForAdmin = ({updateFood,deleteFood }: updateDeleteType) => {
+  const MenuFormForAdmin = ({updateFood,createFood }: updateDeleteType) => {
     const fr = useContext(FormContext)
     
 
     const [formData2, setFormData] = useState({
-        food_id: '',
-        food_name: '',
-        price: '',
-        description: '',
-        category: '',
-        image: ''
+        food_id: `${fr.formData.food_id}`,
+        food_name: `${fr.formData.food_id}`,
+        price: `${fr.formData.food_id}`,
+        description: `${fr.formData.food_id}`,
+        category: `${fr.formData.food_id}`,
+        image: `${fr.formData.food_id}`
       });
 
       const { food_id, food_name, price, description,category,image } = formData2;
 
 
       const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-      setFormData({ ...formData2, [e.target.name]: e.target.value });
+     // setFormData({ ...formData2, [e.target.name]: e.target.value });
+     
+     fr.setMyData({ ...fr.formData, [e.target.name]: e.target.value });
      
       const onChange2 = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
-      setFormData({ ...formData2, [e.target.name]: e.target.value });
+     // setFormData({ ...formData2, [e.target.name]: e.target.value });
+     fr.setMyData({ ...fr.formData, [e.target.name]: e.target.value });
 
       const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-    
-        let formValid = true;
+        // if(formData2.food_id ==='' ){ 
+        // setFormData(fr.formData)
+        // console.log("empty")
+        // }
+        console.log(fr.formData)
    
     
         // if (formValid) {
@@ -101,24 +107,24 @@ type MenuType = {
                   <div className="col-6">
                   <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Food ID'
-                        name='id'
+                        name='food_id'
                         required
-                        value={`${fr.formData.food_id}`}
+                        defaultValue={`${fr.formData.food_id}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="id">Food ID</label>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Food Name'
-                        name='name'
+                        name='food_name'
                         required
-                        value={`${fr.formData.food_name}`}
+                        defaultValue={`${fr.formData.food_name}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="name">Food Name</label>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Price'
                         name='price'
-                        value={`${fr.formData.price}`}
+                        defaultValue={`${fr.formData.price}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="price">Price</label>
                     </div>
@@ -127,22 +133,22 @@ type MenuType = {
                         style={{height: '150px'}}
                         name='description'
 
-                        value={`${fr.formData.description}`}
-                        onChange={(e) => onChange2(e)} > </textarea>
+                        defaultValue={`${fr.formData.description}`}
+                        onChange={(e) => onChange2(e)} /> 
                       <label htmlFor="description">Description</label>
                     </div>
 
                     <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Category'
                         name='category'
-                        value={`${fr.formData.category}`}
+                        defaultValue={`${fr.formData.category}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="category">Category</label>
                     </div>
                     <div className="form-floating mb-3">
                       <input type="text" className="form-control rounded-4" placeholder='Image'
                         name='image'
-                        value={`${fr.formData.image}`}
+                        defaultValue={`${fr.formData.image}`}
                         onChange={(e) => onChange(e)} />
                       <label htmlFor="image">Image</label>
                     </div>
@@ -151,7 +157,7 @@ type MenuType = {
                       </button>
                       </div>
                       <div className="col-9 mx-auto">
-                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-success rounded-pill" onClick={() =>deleteFood(`${fr.formData.food_id}`) } type="submit">Create
+                    <button className="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-success rounded-pill" onClick={() =>createFood(`${fr.formData.food_id}`) } type="button">Create
                       </button>
                       </div>
                     <div className="w-100"></div>

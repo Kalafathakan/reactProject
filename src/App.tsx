@@ -51,14 +51,14 @@ const App = () => {
   
   type foodForFormType1 = {
     //formData:{ 
-    _id: String,
-    food_id: String,
-    food_name: String,
-    price: String,
-    description: String,
-    category: String,
-    active: String,
-    image: String,
+    _id: string,
+    food_id: string,
+    food_name: string,
+    price: string,
+    description: string,
+    category: string,
+    active: string,
+    image: string,
     quantity: number
   //  onQuantityChange: (id: String, data: number) => void;
     //UpdateMenuItem: (selectedFoodId: String) => void;
