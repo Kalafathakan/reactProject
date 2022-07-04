@@ -126,6 +126,7 @@ const Register = (props: Props) => {
           data,
           config
         );
+        localStorage.setItem('email', data.email);
         localStorage.setItem('token', response.data.token);
 
         let decodeddata = decode(response.data.token);
