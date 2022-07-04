@@ -73,6 +73,7 @@ const Login = () => {
         localStorage.setItem('email', data.email);
         localStorage.setItem('token', response.data.token);
         auth.login();
+        auth.adminLoggedIn()
         navigate('/mypage');
         console.log(decode(response.data.token));
       } catch (err: any) {

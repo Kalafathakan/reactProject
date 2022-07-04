@@ -13,7 +13,7 @@ const Navigation = () => {
         <a id='navsec' className='navbarsection'>
           <NavLink to='/menu'>Menu</NavLink>
         </a>
-        {auth.isLoggedIn && (
+        {auth.isLoggedIn && auth.isAdmin &&(
           <a id='navsec' className='navbarsection'>
             <NavLink to='/admin-menu'>Admin</NavLink>
           </a>

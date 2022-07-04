@@ -19,14 +19,41 @@ import MyPage from './pages/MyPage';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Admin from './pages/Admin';
 import FormContext, { foodForFormType } from './context/AdminFormContext';
-
+import decode from 'jwt-decode';
+import jwt from 'jwt-decode'
 const App = () => {
 
   const userIsLoggedIn = () => {
+
     // user info can be loaded after refresh
     return !!window.localStorage.getItem('token'); // !! : cast to boolean
- }
+  }
+
+  const isAdminLoggedIn = () => {
+    let token = localStorage.getItem('token');
+    if (token != null && token !== '' ) {
+      // console.log(token)
+      //console.log("user bilgisi ne")
+      var decodeddata = {
+        user: {
+          email: "",
+          accountType: ""
+        }
+      }
+      decodeddata = decode(token)
+      let accountType = decodeddata.user.accountType
+
+      if (accountType === '') {
+      //if (accountType === 'admin') {
+       // setIsAdmin(true)
+        return true
+      }
+    }
+   // setIsAdmin(false)
+    return false
+  }
   const [isLoggedIn, setIsLoggedIn] = useState(userIsLoggedIn());
+  const [isAdmin, setIsAdmin] = useState(isAdminLoggedIn())
   const login = () => {
     setIsLoggedIn(true);
   };
@@ -34,6 +61,40 @@ const App = () => {
     setIsLoggedIn(false);
     localStorage.setItem('token', '');
   };
+
+  const adminLoggedIn = () => {
+    let token = localStorage.getItem('token');
+    if (token != null) {
+      // console.log(token)
+      //console.log("user bilgisi ne")
+      var decodeddata = {
+        user: {
+          email: "",
+          accountType: ""
+        }
+      }
+      decodeddata = decode(token)
+    
+      let accountType = decodeddata.user.accountType
+      let email = decodeddata.user.email
+      console.log(accountType)
+      console.log(email)
+      if (accountType === '') {
+     // if (accountType === 'admin') {
+        setIsAdmin(true)
+        // return true
+      } else {
+        setIsAdmin(true)
+      }
+    } else {
+      setIsAdmin(false)
+    }
+    // return false
+
+    // setIsLoggedIn(false);
+    //localStorage.setItem('token', '');
+  };
+
   const food = {
     //formData:{ 
     _id: '',
@@ -45,9 +106,9 @@ const App = () => {
     active: '',
     image: '',
     quantity: 0
-   // }
+    // }
   };
-  
+
   type foodForFormType1 = {
     //formData:{ 
     _id: string,
@@ -59,14 +120,14 @@ const App = () => {
     active: string,
     image: string,
     quantity: number
-  //  onQuantityChange: (id: String, data: number) => void;
+    //  onQuantityChange: (id: String, data: number) => void;
     //UpdateMenuItem: (selectedFoodId: String) => void;
-   // }
+    // }
   };
 
-  const [formData, setFormData] = useState<foodForFormType1 >(food)
+  const [formData, setFormData] = useState<foodForFormType1>(food)
 
-  const setMyData = (data:foodForFormType1) => {
+  const setMyData = (data: foodForFormType1) => {
     setFormData(data);
   };
 
@@ -77,10 +138,10 @@ const App = () => {
 
   return (
     <div>
-       <AuthContext.Provider
-        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
-      > 
-      <FormContext.Provider value = {{ formData,setMyData } }> 
+      <AuthContext.Provider
+        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout, adminLoggedIn: adminLoggedIn,isAdmin: isAdmin  }}
+      >
+        <FormContext.Provider value={{ formData, setMyData }}>
           <Navigation />
           <Routes>
             <Route path='/' element={<Home />} />
@@ -95,15 +156,15 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route element={<ProtectedRoute />}>
-            <Route path='/admin-menu' element={<Admin />} />
-            <Route path='/mypage' element={<MyPage />} />
+              <Route path='/admin-menu' element={<Admin />} />
+              <Route path='/mypage' element={<MyPage />} />
             </Route>
           </Routes>
           <Footer />
-          </FormContext.Provider>
-          </AuthContext.Provider>
+        </FormContext.Provider>
+      </AuthContext.Provider>
     </div>
-    
+
   );
 };
 
