@@ -118,10 +118,10 @@ const Login = () => {
                       in</button>
                       </div>
                     <div className="w-100"></div>
-                    <small className="text-muted ">By clicking Sign in, you agree to the terms of
+                    <small className="text-muted ">By clicking sign in, you agree to the terms of
                       use.</small>
                     <div className="modal-footer mt-4">
-                      <h4 className="mx-auto my-auto " >Don't You Have an Account?</h4>
+                      <h4 className="mx-auto my-auto " >Don't Have an Account?</h4>
                       <div className="w-100"></div>
                       <div className="col-9 mx-auto">
                       <a className="w-100 mt-2 btn btn-lg rounded-4 btn-primary border mx-auto mb-5 rounded-pill" href="/register" role="button">Sign Up</a>

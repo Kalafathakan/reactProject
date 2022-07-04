@@ -78,7 +78,7 @@ const Register = (props: Props) => {
       formValid = false;
       setnameError('');
       setEmailError('');
-      setpswdError('password should be more than 5 characters');
+      setpswdError('Password should be more than 5 characters');
     } else if (password2 === '') {
       formValid = false;
       setnameError('');
@@ -90,13 +90,13 @@ const Register = (props: Props) => {
       setnameError('');
       setEmailError('');
       setpswdError('');
-      setcpswdError('password should be more than 5 characters');
+      setcpswdError('Password should be more than 5 characters');
     } else if (password2 !== password) {
       formValid = false;
       setnameError('');
       setEmailError('');
       setpswdError('');
-      setcpswdError('password and confirm password does not match');
+      setcpswdError('Password and confirm password does not match');
     } else {
       formValid = true;
       setnameError('');
@@ -134,7 +134,7 @@ const Register = (props: Props) => {
         navigate('/menu');
       } catch (e: any) {
         console.log('error ', e.message);
-        setError(e.response.data.errors || 'something went wrong');
+        setError(e.response.data.errors || 'Something went wrong');
       }
     }
   };
@@ -205,7 +205,7 @@ const Register = (props: Props) => {
                         name='password2'
                         value={password2}
                         onChange={(e) => onChange(e)} />
-                      <label htmlFor="password">Confrim Password</label>
+                      <label htmlFor="password">Confirm Password</label>
                       <div className="form-text text-danger">  {cpswdError && <p >{cpswdError}</p>}</div>
                     </div>
                     <div className="col-9 mx-auto">
@@ -213,7 +213,7 @@ const Register = (props: Props) => {
                       up</button>
                       </div>
                     <div className="w-100"></div>
-                    <small className="text-muted ">By clicking Sign up, you agree to the terms of
+                    <small className="text-muted ">By clicking sign up, you agree to the terms of
                       use.</small>
                     <div className="modal-footer mt-4">
                       <h3 className="mx-auto my-auto " >Already have an account?</h3>
@@ -231,65 +231,6 @@ const Register = (props: Props) => {
         </div>
 
       </div>
-
-
-
-
-      {/* <div className="center">
-          <h1 className="text-center">Sign Up</h1>
-          <p><b>Create Your Account</b></p>
-          <br></br>
-          <form className="loginBox" onSubmit={(e) => onSubmit(e)} noValidate>
-            <div>
-              <input
-                type='text'
-                placeholder='Name'
-                name='name'
-                required
-                value={name}
-                onChange={(e) => onChange(e)}
-              />
-            </div>
-            <div>
-              <input
-                type='email'
-                placeholder='Email Address'
-                name='email'
-                value={email}
-                onChange={(e) => onChange(e)}
-              />
-              {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
-            </div>
-            <div>
-              <input
-                type='password'
-                placeholder='Password'
-                name='password'
-                value={password}
-                onChange={(e) => onChange(e)}
-              />
-              {pswdError && <p style={{ color: 'red' }}>{pswdError}</p>}
-            </div>
-            <div>
-              <input
-                type='password'
-                placeholder='Confirm Password'
-                name='password2'
-                value={password2}
-                onChange={(e) => onChange(e)}
-              />
-              {cpswdError && <p style={{ color: 'red' }}>{cpswdError}</p>}
-            </div>
-
-            <input type='submit' value='Register' className="btn btn-primary" />
-
-          </form>
-          <br></br>
-          <p>
-            Already have an account? <Link to='/login'>Sign In</Link>
-          </p>
-        </div> */}
-
     </div>
 
   );
