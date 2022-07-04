@@ -78,7 +78,7 @@ const Login = () => {
         console.log(decode(response.data.token));
       } catch (err: any) {
         console.log(err);
-        setError(err.response.data.errors || 'something went wrong');
+        setError(err.response.data.errors || 'Something went wrong');
       }
     }
   };
