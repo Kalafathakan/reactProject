@@ -632,3 +632,10 @@ button {
   object-fit: contain;
   margin-left: 40px;
 }
+
+.cart-btn {
+  position: fixed;
+  z-index: 100;
+  right: 20px;
+  top: 35px;
+}

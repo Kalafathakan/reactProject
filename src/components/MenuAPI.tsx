@@ -172,7 +172,7 @@ const MenuAPI = () => {
           removeFromCart={handleRemoveFromCart}
         />
       </Drawer>
-      <button onClick={() => setCartOpen(true)}>
+      <button className='cart-btn' onClick={() => setCartOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color='error'>
           <AddShoppingCartIcon />
           Cart
