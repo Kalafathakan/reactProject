@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Gallery.css'
 
@@ -12,7 +11,7 @@ const Gallery = (props: Props) => {
   return (
     <div className='page-style'>
       <div className='div-img'>
-        <h1>Gallery</h1>
+        <h1 id='topics-hk'>Gallery</h1>
 
         <p id='gallery-p'> These are our chefs that prepare our delicious menu!</p>
         <img id='gallery-img' src={require('../images/our-chefs.jpg')}></img>
@@ -29,6 +28,7 @@ const Gallery = (props: Props) => {
         <p id='gallery-p'> Our staff are always delivering excellent service to all tables directly!</p>
         <img id='gallery-img' src={require('../images/restaurant-customer-service.jpg')}></img>
       </div>
+      <br></br>
     </div>
   );
 };

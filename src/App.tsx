@@ -23,6 +23,7 @@ import decode from 'jwt-decode';
 import jwt from 'jwt-decode'
 import AdminProtectedRoute from './pages/AdminProtectedRoute';
 import AdminOrders from './pages/Admin-orders';
+import Gallery from './pages/Gallery';
 const App = () => {
 
   const userIsLoggedIn = () => {
@@ -155,6 +156,7 @@ const App = () => {
             <Route path='reviews' element={<Reviews />} />
             <Route path='about' element={<About />} />
             <Route path='deals' element={<Deals />} />
+            <Route path='gallery' element={<Gallery />} />
             <Route path='contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
