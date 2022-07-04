@@ -130,7 +130,26 @@ button {
   margin-bottom: 150px;
 }
 
+#home-intro{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
 
+#homeimg-div {
+  text-align: center;
+}
+
+#home-img {
+  border-color: #282d32;
+    border-style: groove;
+    border-radius: 7%;
+    width: auto;
+    max-width: 500px;
+}
+
+#addressInfo{
+  text-align: center;
+}
 
 #dashboard {
   list-style-type: none;
@@ -196,6 +215,8 @@ button {
 }
 
 #homeVideo {
+  margin:10%;
+  margin-top: 150px;
   max-width: 600px;
   width: auto;
 }

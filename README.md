@@ -1,22 +1,6 @@
 # Falcons React Project
 
-## npm commands that are necessary
-
-### `npm install --save @types/uuid`
-
-### `npm install jwt-decode`
-
-### `npm install react-router-dom`
-
-### `npm install axios`
-
-### `npm install @mui/material @mui/styled-engine-sc styled-components`
-
-### `npm install @mui/icons-material`
-
-### `npm install --save @types/react-calendar`
-
-## Phase 1 Task List
+## Project Task List
 
 Zafer Hakan Kalafat / N01468413:
 
@@ -40,11 +24,15 @@ Guray Demirezen / N01451141:
 
 -Log In Page
 
+-Admin Panel
+
 Vishnu Pillai / N01454618:
 
 -Menu Page
 
 -Order Page
+
+-Cart Page
 
 Nicholas Keller-Sedan / N01467921:
 
