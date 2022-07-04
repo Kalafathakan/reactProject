@@ -97,7 +97,7 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route element={<ProtectedRoute />}>
-            <Route path='/admin' element={<Admin />} />
+            <Route path='/admin-menu' element={<Admin />} />
             </Route>
           </Routes>
           <Footer />
