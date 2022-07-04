@@ -31,11 +31,17 @@ type MenuType = {
   handleAddToCart: (clickedFood: CartItemType) => void;
 };
 
+const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
+
 const MenuAPI = () => {
   const [search, setSearch] = useState('');
   const [foods, setFoods] = useState<MenuType[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([] as CartItemType[]);
+  const [cart, setCart] = useState(localCart as CartItemType[]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const sendGetRequest = async () => {
     try {
@@ -43,60 +49,6 @@ const MenuAPI = () => {
         'https://shielded-depths-40144.herokuapp.com/foods'
       );
       setFoods(response.data);
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const sendDeleteRequest = async () => {
-    try {
-      const response = await axios.delete(
-        'https://shielded-depths-40144.herokuapp.com/foods/25'
-      );
-
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const sendPostRequest = async () => {
-    try {
-      const response = await axios.post(
-        'https://shielded-depths-40144.herokuapp.com/foods',
-        {
-          food_id: '25',
-          food_name: 'Tacos',
-          price: '8.00',
-          description: 'A crispy or soft corn or wheat tortilla that is folded or rolled and stuffed with a mixture.',
-          category: 'Mains',
-          active: 'Yes',
-          image: 'Tacos.jpg'
-        }
-      );
-
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const sendPutRequest = async () => {
-    try {
-      const response = await axios.put(
-        'https://shielded-depths-40144.herokuapp.com/foods/25',
-        {
-          food_id: '25',
-          food_name: 'Pasta',
-          price: '10.00',
-          description: 'Made from a mixture of flour, eggs, and water that is formed into different shapes and then boiled.',
-          category: 'Mains',
-          active: 'Yes',
-          image: 'NoPicAv.png'
-        }
-      );
-
       console.log(response);
     } catch (err) {
       console.log(err);
@@ -133,7 +85,7 @@ const MenuAPI = () => {
     items.reduce((total: number, item) => total + item.quantity, 0);
 
   const handleAddToCart = (clickedItem: CartItemType) => {
-    setCartItems(prev => {
+    setCart(prev => {
       // Check if the food is already in the cart
       const isItemInCart = prev.find(item => item.food_id === clickedItem.food_id);
 
@@ -150,7 +102,7 @@ const MenuAPI = () => {
   };
 
   const handleRemoveFromCart = (id: string) => {
-    setCartItems(prev =>
+    setCart(prev =>
       prev.reduce((total, item) => {
         if (item.food_id === id) {
           if (item.quantity === 1) return total;
@@ -167,13 +119,13 @@ const MenuAPI = () => {
     <div>
       <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart
-          cartItems={cartItems}
+          cartItems={cart}
           addToCart={handleAddToCart}
           removeFromCart={handleRemoveFromCart}
         />
       </Drawer>
       <button className='cart-btn' onClick={() => setCartOpen(true)}>
-        <Badge badgeContent={getTotalItems(cartItems)} color='error'>
+        <Badge badgeContent={getTotalItems(cart)} color='error'>
           <AddShoppingCartIcon />
           Cart
         </Badge>
