@@ -49,7 +49,7 @@ const FoodForAdmin = ({ food_id,food_name,price,UpdateMenuItem ,image,descriptio
         <p className="food-price">${price}</p>
         <p className="food-desc">{description}</p>
 
-        
+        {/* window.confirm('Are you sure you wish to delete this item?') ? onConfirm("confirm") : onCancel("cancel") */}
         {/* <button  className="btn btn-warning me-2" onClick={() => UpdateMenuItem(food_id)}   >Edit</button>
         <button  className="btn btn-danger" onClick={() => deleteMenuItem(food_id)}   >Delete</button> */}
           <button  className="btn btn-warning me-2" onClick={() => {  (window.confirm('Are you sure you wish to update this food?')) ? UpdateMenuItem(food_id) : console.log("process cancel") }}   >Edit</button>
