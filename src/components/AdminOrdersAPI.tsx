@@ -49,7 +49,7 @@ type addFoodType = {
   //UpdateMenuItem: (selectedFoodId: String) => void;
 };
 
-const MenuAPIForAdmin = () => {
+const AdminOrdersAPI = () => {
   const [search, setSearch] = useState('');
   const [foods, setFoods] = useState<MenuType[]>([]);
   const [foodForForm, setFoodForForm] = useState<foodForFormType>({
@@ -281,4 +281,4 @@ const MenuAPIForAdmin = () => {
   );
 };
 
-export default MenuAPIForAdmin;
+export default AdminOrdersAPI;

@@ -22,6 +22,7 @@ import FormContext, { foodForFormType } from './context/AdminFormContext';
 import decode from 'jwt-decode';
 import jwt from 'jwt-decode'
 import AdminProtectedRoute from './pages/AdminProtectedRoute';
+import AdminOrders from './pages/Admin-orders';
 const App = () => {
 
   const userIsLoggedIn = () => {
@@ -162,6 +163,7 @@ const App = () => {
               <Route path='/mypage' element={<MyPage />} />
               <Route element={<AdminProtectedRoute />}>
                 <Route path='/admin-menu' element={<Admin />} />
+                <Route path='/admin-orders' element={<AdminOrders />} />
                 {/* <Route path='/mypage' element={<MyPage />} /> */}
               </Route>
             </Route>

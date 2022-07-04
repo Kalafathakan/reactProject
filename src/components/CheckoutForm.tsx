@@ -41,7 +41,7 @@ const AddOrderForm = (props: AddProps) => {
       setPhone(e.target.value);
     };
 
-  //submits the form and updates the review list, resets the labels to empty
+  // submits the form and updates the list, resets the labels to empty
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     //by default it will submit the form, so prevent
     e.preventDefault();
