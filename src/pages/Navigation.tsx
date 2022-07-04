@@ -28,6 +28,9 @@ const Navigation = () => {
           <NavLink to='/deals'>Deals & Promotions</NavLink>
         </a>
         <a id='navsec' className='navbarsection'>
+          <NavLink to='/gallery'>Gallery</NavLink>
+        </a>
+        <a id='navsec' className='navbarsection'>
           <NavLink to='/reviews'>Reviews</NavLink>
         </a>
         <a id='navsec' className='navbarsection'>
