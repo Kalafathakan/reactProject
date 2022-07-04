@@ -130,13 +130,6 @@ const MenuAPI = () => {
           Cart
         </Badge>
       </button>
-      {/* These will be in the admin page instead }
-      <div className="center">
-        <button onClick={sendPostRequest}>Add Food</button>
-        <button onClick={sendPutRequest}>Update Food</button>
-        <button onClick={sendDeleteRequest}>Delete Food</button>
-      </div>      
-      <br></br>*/}
       <Search filterMenu={filterMenu} />
       <h2>Starters</h2>
       <div className="food-items">

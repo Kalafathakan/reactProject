@@ -1,32 +1,15 @@
-import { useParams } from 'react-router-dom';
-type Props = {};
+import OrdersAPI from '../components/OrdersAPI';
 
-const Orders = (props: Props) => {
-  const params = useParams();
-  return (
-    <div className='page-style-hk'>
-      <h1 id="topics-hk">Orders</h1>
-      <h3>Your Order History</h3>
-      <table className="order-table">
-        <tr>
-          <th>Order #</th>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th>Date</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Cheesecake</td>
-          <td>1</td>
-          <td>$4.00</td>
-          <td>2022-06-13</td>
-          <td>Fulfilled</td>
-        </tr>
-      </table>
-    </div>
-  );
-};
+//importing the css involved with the app
+import '../App.css';
+
+const Orders = () => {
+    return (
+        <div className='page-style-hk'>
+          <OrdersAPI />
+        </div>
+      );
+    };
 
 export default Orders;
+

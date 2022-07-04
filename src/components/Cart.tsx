@@ -1,5 +1,7 @@
+import { useState } from "react";
 import CartItem from './CartItem';
 import { CartItemType } from './MenuAPI';
+import CheckoutForm from './CheckoutForm';
 
 type CartProps = {
   cartItems: CartItemType[];
@@ -8,13 +10,33 @@ type CartProps = {
 };
 
 const Cart = ({ cartItems, addToCart, removeFromCart }: CartProps) => {
+
+  type OrderProps = {
+    name: string,
+    phone: string,
+    cart: string,
+    total: string,
+    date: string
+  };
+  
+  const [orders, setOrders] = useState<OrderProps[]>([]);
   const calculateTotal = (items: CartItemType[]) =>
-    items.reduce((total: number, item) => total + item.quantity * item.price, 0);
+  items.reduce((total: number, item) => total + item.quantity * item.price, 0);
+  const totalVal = calculateTotal(cartItems).toFixed(2);
+  localStorage.setItem("total", totalVal);
+  
+    // Add an order
+      const handleAddOrder = (name: string, phone: string, cart: string, date: string) => {
+        setOrders((prevState) => [
+            ...prevState,
+            { name: name, phone: phone, cart: cart, total: totalVal, date: date },
+        ]);
+    };
 
   return (
     <div className='cart-wrapper'>
-      <h2>Your Shopping Cart</h2>
-      {cartItems.length === 0 ? <p>No items in cart.</p> : null}
+      <h2>Your Cart</h2>
+      {cartItems.length === 0 ? <p>No food in cart.</p> : null}
       {cartItems.map(item => (
         <CartItem
           key={item.food_id}
@@ -24,7 +46,9 @@ const Cart = ({ cartItems, addToCart, removeFromCart }: CartProps) => {
         />
       ))}
       <br />
-      <h4>Total: ${calculateTotal(cartItems).toFixed(2)}</h4>
+      <h4>Total: ${totalVal}</h4>
+
+      <CheckoutForm onAdd={handleAddOrder}  />
     </div>
   );
 };
