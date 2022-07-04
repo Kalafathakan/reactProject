@@ -74,7 +74,7 @@ const Login = () => {
         localStorage.setItem('token', response.data.token);
         auth.login();
         auth.adminLoggedIn()
-        navigate('/mypage');
+        navigate('/');
         console.log(decode(response.data.token));
       } catch (err: any) {
         console.log(err);
