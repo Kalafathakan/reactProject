@@ -21,6 +21,7 @@ import Admin from './pages/Admin';
 import FormContext, { foodForFormType } from './context/AdminFormContext';
 import decode from 'jwt-decode';
 import jwt from 'jwt-decode'
+import AdminProtectedRoute from './pages/AdminProtectedRoute';
 const App = () => {
 
   const userIsLoggedIn = () => {
@@ -31,7 +32,7 @@ const App = () => {
 
   const isAdminLoggedIn = () => {
     let token = localStorage.getItem('token');
-    if (token != null && token !== '' ) {
+    if (token != null && token !== '') {
       // console.log(token)
       //console.log("user bilgisi ne")
       var decodeddata = {
@@ -43,13 +44,13 @@ const App = () => {
       decodeddata = decode(token)
       let accountType = decodeddata.user.accountType
 
-     // if (accountType === '') {
+      // if (accountType === '') {
       if (accountType === 'admin') {
-       // setIsAdmin(true)
+        // setIsAdmin(true)
         return true
       }
     }
-   // setIsAdmin(false)
+    // setIsAdmin(false)
     return false
   }
   const [isLoggedIn, setIsLoggedIn] = useState(userIsLoggedIn());
@@ -75,12 +76,12 @@ const App = () => {
         }
       }
       decodeddata = decode(token)
-    
+
       let accountType = decodeddata.user.accountType
       let email = decodeddata.user.email
       console.log(accountType)
       console.log(email)
-     // if (accountType === '') {
+      // if (accountType === '') {
       if (accountType === 'admin') {
         setIsAdmin(true)
         // return true
@@ -140,7 +141,7 @@ const App = () => {
   return (
     <div>
       <AuthContext.Provider
-        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout, adminLoggedIn: adminLoggedIn,isAdmin: isAdmin  }}
+        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout, adminLoggedIn: adminLoggedIn, isAdmin: isAdmin }}
       >
         <FormContext.Provider value={{ formData, setMyData }}>
           <Navigation />
@@ -157,9 +158,14 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route element={<ProtectedRoute />}>
-              <Route path='/admin-menu' element={<Admin />} />
+              {/* <Route path='/admin-menu' element={<Admin />} /> */}
               <Route path='/mypage' element={<MyPage />} />
+              <Route element={<AdminProtectedRoute />}>
+                <Route path='/admin-menu' element={<Admin />} />
+                {/* <Route path='/mypage' element={<MyPage />} /> */}
+              </Route>
             </Route>
+
           </Routes>
           <Footer />
         </FormContext.Provider>
