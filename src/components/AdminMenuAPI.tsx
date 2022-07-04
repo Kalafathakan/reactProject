@@ -17,9 +17,9 @@ type MenuType = {
   active: string,
   image: string,
   quantity: number
- // onQuantityChange: (id: String, data: number) => void;
- UpdateMenuItem: (selectedFoodId: string) => void;
- deleteMenuItem: (selectedFoodId: string) => void;
+  // onQuantityChange: (id: String, data: number) => void;
+  UpdateMenuItem: (selectedFoodId: string) => void;
+  deleteMenuItem: (selectedFoodId: string) => void;
 };
 
 export type foodForFormType = {
@@ -32,7 +32,20 @@ export type foodForFormType = {
   active: string,
   image: string,
   quantity: number
-//  onQuantityChange: (id: String, data: number) => void;
+  //  onQuantityChange: (id: String, data: number) => void;
+  //UpdateMenuItem: (selectedFoodId: String) => void;
+};
+
+type addFoodType = {
+  food_id: string,
+  food_name: string,
+  price: string,
+  description: string,
+  category: string,
+  active: string,
+  image: string,
+  quantity: number
+  //  onQuantityChange: (id: String, data: number) => void;
   //UpdateMenuItem: (selectedFoodId: String) => void;
 };
 
@@ -49,45 +62,60 @@ const MenuAPIForAdmin = () => {
     active: "",
     image: "",
     quantity: 0
- 
+
     //UpdateMenuItem: MUpdateMenuItem
-    
-    
+
+
     // function (selectedFoodId: String): void {
     //   throw new Error("Function not implemented.");}
-    }
-    );
+  }
+  );
 
   //const formMenu = useContext(FormContext) as unknown as foodForFormType
 
- const fr = useContext(FormContext)
+  const fr = useContext(FormContext)
 
 
 
 
-  const MUpdateMenuItem = (foodId : string) => {
-     console.log(foodId)
-     getDataById(foodId)
-     
-   }
+  const MUpdateMenuItem = (foodId: string) => {
+    console.log(foodId)
+    getDataById(foodId)
 
-   const MdeleteMenuItem = (foodId : string) => {
+  }
+
+  const MdeleteMenuItem = (foodId: string) => {
     console.log("delete this food")
     console.log(foodId)
-   // getDataById(foodId)
-    
+    // getDataById(foodId)
+
+
   }
 
 
-   const MupdateFood = (id:string) => {
+  const MupdateFood = (id: string) => {
     console.log("update this data")
     console.log(fr.formData)
-   }
-   const McreateFood = (id:string) => {
+  }
+  const McreateFood = (id: string) => {
     console.log("create this data")
     console.log(fr.formData)
-    sendPostRequest(fr.formData)
-   }
+    // sendPostRequest(fr.formData)
+
+    let newData = {
+      "food_id": fr.formData.food_id,
+      "food_name": fr.formData.food_name,
+      "price": fr.formData.price,
+      "description": fr.formData.description,
+      "category": fr.formData.category,
+      "active": fr.formData.active,
+      "image": fr.formData.image,
+      "quantity": fr.formData.quantity
+
+    }
+    sendPostRequest(newData)
+
+  }
 
 
   const sendGetRequest = async () => {
@@ -102,13 +130,13 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const getDataById = async (id:string) => {
+  const getDataById = async (id: string) => {
     try {
       const response = await axios.get(
         `https://shielded-depths-40144.herokuapp.com/foods/${id}`
       );
-     // setFoodForForm(response.data);
-     fr?.setMyData(response.data);
+      // setFoodForForm(response.data);
+      fr?.setMyData(response.data);
       console.log("data degisti mi")
       console.log(response.data);
     } catch (err) {
@@ -128,11 +156,11 @@ const MenuAPIForAdmin = () => {
     }
   };
 
-  const sendPostRequest = async (data:foodForFormType) => {
+  const sendPostRequest = async (data: addFoodType) => {
     try {
       const response = await axios.post(
         'https://shielded-depths-40144.herokuapp.com/foods',
-       { data}
+        data
         // {
         //   food_id: '25',
         //   food_name: 'Tacos',
@@ -206,45 +234,45 @@ const MenuAPIForAdmin = () => {
         <button onClick={sendDeleteRequest}>Delete Food</button>
       </div>      
       <br></br>*/}
-      
-    <MenuFormForAdmin updateFood={MupdateFood} createFood={McreateFood} />
+
+      <MenuFormForAdmin updateFood={MupdateFood} createFood={McreateFood} />
 
 
       <Search filterMenu={filterMenu} />
       <h2>Starters</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
-        .map((food) => (
-          (food.category == "Starters") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
-        ))}
+          .map((food) => (
+            (food.category == "Starters") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          ))}
       </div>
       <h2>Mains</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
-        .map((food) => (
-          (food.category == "Mains") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
-        ))}
+          .map((food) => (
+            (food.category == "Mains") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          ))}
       </div>
       <h2>Curries</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
-        .map((food) => (
-          (food.category == "Curries") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
-        ))}
+          .map((food) => (
+            (food.category == "Curries") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          ))}
       </div>
       <h2>Desserts</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
-        .map((food) => (
-          (food.category == "Desserts") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
-        ))}
+          .map((food) => (
+            (food.category == "Desserts") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          ))}
       </div>
       <h2>Beverages</h2>
       <div className="food-items">
         {foods.filter((f) => f.food_name.toLowerCase().includes(search.toLowerCase()))
-        .map((food) => (
-          (food.category == "Beverages") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem}  deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
-        ))}
+          .map((food) => (
+            (food.category == "Beverages") ? <FoodForAdmin food_id={food.food_id} food_name={food.food_name} price={food.price} UpdateMenuItem={MUpdateMenuItem} deleteMenuItem={MdeleteMenuItem} key={food._id.toString()} description={food.description} category={food.category} active={food.active} image={food.image} quantity={food.quantity} /> : ""
+          ))}
       </div>
     </div>
 
