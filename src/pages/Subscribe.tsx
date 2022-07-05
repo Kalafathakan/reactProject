@@ -78,10 +78,10 @@ const Subscribe = () => {
             <h1 id="topics-hk">
                 Join to Get Updates from us!
             </h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+           
             <form className="form-sub" onSubmit={handleFormSubmit}>
 
-
+            {error && <p style={{ color: 'red' }}>{error}</p>}
                 <br />
                 <label>First Name</label>
                 <br />
