@@ -92,7 +92,7 @@ const Subscribe = () => {
                     onChange={(e) => onDataChange(e)}
                     value={firstName}
                 />
-                {fieldError && <span style={{ color: 'red' }}>{fieldError}</span>}
+                {fieldError && <p><span style={{ color: 'red' }}>{fieldError}</span></p>}
                 <br /><br />
                 <label>Email</label>
                 <br />
@@ -103,7 +103,7 @@ const Subscribe = () => {
                     onChange={(e) => onDataChange(e)}
                     value={email}
                 />
-                {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
+                {emailError && <p><span style={{ color: 'red' }}>{emailError}</span></p>}
                 <br /><br /><br />
                 <button>Subscribe</button>
                 <br /><br />
