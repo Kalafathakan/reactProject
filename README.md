@@ -8,17 +8,24 @@ https://falcons-restaurant.herokuapp.com/
 
 Zafer Hakan Kalafat / N01468413:
 
--Created the main architecture of the project
+#### Created the main architecture of the project
+
 -Assigned everyone with their pages and tasks
+
 -Established the github repo 
+
 -Established all the navigations and routes
+
 -Contributed in help of creation of the register part
+
 -Contributed in help of creating API that also supports gallery and deals&promotions page
 
 -Created 3 APIs which are:
 
   -Images API where it has pictures for the gallery, deals&promotions and home page
+
   -FAQ API where it contains the question and answer info
+
   -About API where it has the images, title and names for the development team
 
 -Home Page

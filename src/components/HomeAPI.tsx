@@ -44,7 +44,7 @@ const HomeAPI = () => {
           .map((img) => ( 
             ( img.image == "businessHours.jpg") ?
 
-        <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${img.image}`}></img>: ""
+        <img className="home-img" src={`https://shielded-depths-40144.herokuapp.com/assets/images/${img.image}`}></img>: ""
 
           ))}
 
