@@ -32,6 +32,8 @@ Zafer Hakan Kalafat / N01468413:
 #### -FAQ
  consuming API to display the questions and answers in the accordion UI
 
+*********************************************************************
+
 Oreoluwa Lawal / N01452264:
 
 -Bookings Page
