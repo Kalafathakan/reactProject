@@ -41,9 +41,10 @@ const HomeAPI = () => {
       
       
         {imgs
-          .map((imgs) => ( 
-         <img src={`https://shielded-depths-40144.herokuapp.com/images/${1}`}></img>
-        // <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${image}`} alt={`${food_name}`} className="img-responsive img-curve" height="auto" width="150px" />
+          .map((img) => ( 
+            ( img.image == "businessHours.jpg") ?
+
+        <img src={`https://shielded-depths-40144.herokuapp.com/assets/images/${img.image}`}></img>: ""
 
           ))}
 
