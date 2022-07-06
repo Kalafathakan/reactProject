@@ -17,10 +17,13 @@ https://falcons-restaurant.herokuapp.com/
 #### -Established all the navigations and routes
 #### -Contributed in help of creation of the register part
 #### -Contributed in help of creating API that also supports gallery and deals&promotions page
+
 #### - [Home Page](https://falcons-restaurant.herokuapp.com)
 The home page consumes the images API to display business hours image.
+
 #### - [About Page](https://falcons-restaurant.herokuapp.com/about)
 The about page consumes the API to display the development team.
+
 #### - [FAQ](https://falcons-restaurant.herokuapp.com/faq)
 The FAQ page consumes the API to display the questions and answers in the accordion UI.
 
