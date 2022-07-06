@@ -14,9 +14,9 @@ https://falcons-restaurant.herokuapp.com/
 #### -Created the main architecture of the project
 #### -Assigned everyone with their pages and tasks
 #### -Established the github repo 
-#### -Established all the navigations and routes
-#### -Contributed in help of creation of the register part
-#### -Contributed in help of creating API that also supports gallery and deals&promotions page
+#### -Established all the NAVIGATION AND ROUTES
+#### -Contributed in help of creation of the REGISTER part
+#### -Contributed in help of creating API that also supports GALLERY and DEALS&PROMOTIONS PAGE
 
 #### - [Home Page](https://falcons-restaurant.herokuapp.com)
 The home page consumes the images API to display business hours image.
