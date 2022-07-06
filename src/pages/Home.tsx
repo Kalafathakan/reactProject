@@ -1,4 +1,30 @@
-const Home = () => {
+import axios from 'axios';
+import React, { useState, useEffect } from "react";
+
+type ImagesProps = {
+  image_id: string,
+  image: string
+};
+
+const Home = ({image}: ImagesProps) => {
+  const [getImage, setImage] = useState<ImagesProps[]>([]);
+
+  const sendGetRequest = async () => {
+    try {
+      const response = await axios.get(
+        'https://shielded-depths-40144.herokuapp.com/images'
+      );
+      setImage(response.data);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    sendGetRequest();
+  }, []);
+
 
   return (
 
@@ -35,7 +61,8 @@ const Home = () => {
           <h3>Address</h3>
           <p>205 Humber College Blvd, Etobicoke, ON M9W 6V3</p><hr></hr>
           <div id="homeimg-div">
-          <img id='home-img' src={require('../images/businessHours.jpg')}></img>
+          
+          <img id='home-img' src={`https://shielded-depths-40144.herokuapp.com/images/1${image}`}></img>
           </div>
         </div>
       </div>
