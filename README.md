@@ -41,15 +41,21 @@ In the react app when user enters their name and email and clicks subscribe, it 
 ## user api created in our main api
 
 ## -Registration Page
+#### in this page, if user try to register with an email that is already registered it will show the error.
+#### we also have validations that checks users input whether satisfy the requirements
 ### ![image](https://user-images.githubusercontent.com/83139326/177656752-7bfefccd-5477-4c6f-a861-464b87c4e8fa.png)
 
 
 ## -Log In Page
+#### in this page, if user try to log in an account that has not registered yet it will say the user does not exist, register first!
+#### if user enter wrong password it will say password is wrong
 ### ![image](https://user-images.githubusercontent.com/83139326/177656728-ef93a9c2-22c0-4c9f-a8bf-cce8aa398754.png)
 
 
 ## -Admin Panel
-### user cannot see if the account is not admin account type
+### route protected. user cannot see admin panel if the account is not admin account.
+#### when creating a new food, the food id already exist then it will assign a food id by itselt
+#### admin can search by customer name in the order history page
 ### in Admin panel, we have 2 pages Which are editing menu and displayin all orders
 ### ![image](https://user-images.githubusercontent.com/83139326/177656803-34c135f4-b4dd-49ba-a697-16e3e88849fe.png)
 ### ![image](https://user-images.githubusercontent.com/83139326/177656825-aa6f725e-7727-4435-a607-7421bdeb7360.png)
