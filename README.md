@@ -36,7 +36,7 @@ The subscription page (Subscribe.tsx) utilizes an API which stores subscribers f
 In the react app when user enters their name and email and clicks subscribe, it accesses the API route and saves the information, if successful an email is sent welcoming the user.
 
 *******************************************************
-```
+```diff
 # Guray Demirezen / N01451141:
 #### user api created in our main api
 
