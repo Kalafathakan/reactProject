@@ -80,6 +80,11 @@ The OrderTable component simply displays a table with the data using props.
 ***************************************************************
 
 ### Nicholas Keller-Sedan / N01467921:
+#### - used photoshop to create the Deals and Promotions image and the Business Hours image
+#### - Created the API for the REVIEWS, GALLERY, and DEALS&PROMOTIONS pages
 #### - [Deals & Promotions Page](https://falcons-restaurant.herokuapp.com/deals)
+The deals and promotions page consumes the images API which stores a bunch of the images we have used within hte project to display our restaurants deals image that was created in Photoshop.
 #### - [Reviews Page](https://falcons-restaurant.herokuapp.com/reviews)
+The Reviews page consumes the reviews API to display all the reviews that our restaurant has recieved from customers. The API is consumed by a form which allows customers to enter the name, a star rating, and leave a review. On submission provided all fields are not empty it will add it to the API and display it in the reviews section. It is then able to be sorted by star rating through the drop down menu provided.
 #### - [Gallery](https://falcons-restaurant.herokuapp.com/gallery)
+The gallery page consumes the images API which stores a bunch of the images we have used within the project to display images about our restaurant.
