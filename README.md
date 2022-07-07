@@ -61,6 +61,7 @@ Route protected. User cannot see the admin panel if the account's type is not ad
 ### Vishnu Pillai / N01454618:
 #### - Used Photoshop to create the Logo and Favicon
 #### - Created the API for menu and orders
+#### - Deployed the website and server API to Heroku
 #### - [Menu Page](https://falcons-restaurant.herokuapp.com/menu)
 The menu page utilizes an API which stores a food ID, food name, price, description, category, and image. It has routes to get all food, get food by id, update food, and delete food. In React, there are two components: Food and MenuAPI. 
 The "Food" component uses JSX to format how the food boxes look in the menu. It retrieves the food image from the API. Axios is used in the "MenuAPI" component to send a GET request to this API. This menu page allows users to search for food by name, add items to cart, and remove items from cart. 
