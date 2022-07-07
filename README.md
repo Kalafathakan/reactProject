@@ -16,7 +16,7 @@ Zafer Hakan Kalafat / N01468413:
 #### -Contributed in help of creating API that also supports GALLERY and DEALS&PROMOTIONS PAGE
 
 #### - [Home Page](https://falcons-restaurant.herokuapp.com)
-The home page consumes the images API to display business hours image.
+The home page consumes the images API to display business hours image and providing information of who we are.
 #### - [About Page](https://falcons-restaurant.herokuapp.com/about)
 The about page consumes the API to display the development team.
 #### - [FAQ](https://falcons-restaurant.herokuapp.com/faq)
