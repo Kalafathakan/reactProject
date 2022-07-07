@@ -1,5 +1,3 @@
-import axios from 'axios';
-import React, { useState, useEffect } from "react";
 import HomeAPI from '../components/HomeAPI';
 
 const Home = () => {
