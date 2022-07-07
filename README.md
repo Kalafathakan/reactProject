@@ -1,17 +1,14 @@
 # Falcons React Project
 
 ## Heroku link to the website:
-
 https://falcons-restaurant.herokuapp.com/
 
-## Login Info
-Admin: admin@gmail.com
-Password: 12345
+### Login Info
+- Admin: admin@gmail.com
+- Password: 12345
 
 ## Project Task List
-
-Zafer Hakan Kalafat / N01468413:
-
+### Zafer Hakan Kalafat / N01468413:
 #### -Created the main architecture of the project
 #### -Assigned everyone with their pages and tasks
 #### -Established the github repo 
@@ -41,7 +38,7 @@ In the react app when user enters their name and email and clicks subscribe, it 
 
 *******************************************************
 
-# Guray Demirezen / N01451141:
+### Guray Demirezen / N01451141:
 #### user api created in our main api
 
 ##  [Registration Page](https://falcons-restaurant.herokuapp.com/register)
