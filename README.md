@@ -4,6 +4,10 @@
 
 https://falcons-restaurant.herokuapp.com/
 
+## Login Info
+Admin: admin@gmail.com
+Password: 12345
+
 ## Project Task List
 
 Zafer Hakan Kalafat / N01468413:
