@@ -51,7 +51,7 @@ In the react app when user enters their name and email and clicks subscribe, it 
 
 
 ##   [Log In Page](https://falcons-restaurant.herokuapp.com/login)
-#### in this page, if user try to log in an account that has not been registered yet it will say the account does not exist, register first!
+#### in this page, if user try to log in with an account that has not been registered yet it will say the account does not exist, register first!
 #### if user enter wrong password it will say password is wrong
 ### ![image](https://user-images.githubusercontent.com/83139326/177656728-ef93a9c2-22c0-4c9f-a8bf-cce8aa398754.png)
 
