@@ -28,6 +28,8 @@ type updateDeleteType = {
 const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
   const fr = useContext(FormContext)
 
+  const [errorMessage, setErrorMessage] = useState('')
+
 
   const [formData2, setFormData] = useState({
     food_id: `${fr.formData.food_id}`,
@@ -41,10 +43,19 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
   const { food_id, food_name, price, description, category, image } = formData2;
 
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => 
     // setFormData({ ...formData2, [e.target.name]: e.target.value });
 
+  
+
     fr.setMyData({ ...fr.formData, [e.target.name]: e.target.value });
+
+ 
+
+
+    
+
+
 
   const onChange2 = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     // setFormData({ ...formData2, [e.target.name]: e.target.value });
@@ -52,6 +63,14 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == ''  ){
+      setErrorMessage('do not leave any section empty')
+    }else{
+      setErrorMessage('')
+    }
+
+
     // if(formData2.food_id ==='' ){ 
     // setFormData(fr.formData)
     // console.log("empty")
@@ -100,9 +119,11 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
           <div className="modal-md-dialog  ">
             <div className="modal-content rounded-5 shadow text-center bg-light bg-opacity-25">
               <div className="modal-header  ">
-                <h2 className="mx-auto my-auto mt-2 mb-2 display-5 ">Update or Create Food</h2>
+                <h2 className="mx-auto my-auto mt-2 mb-2 display-5 ">Update or Create Food</h2> 
+               
               </div>
               <div className="modal-body  ">
+                <h4 className="mx-auto my-auto  mb-4  display-6 text-danger ">{errorMessage}</h4>
                 <form className="row justify-content-center " onSubmit={(e) => onSubmit(e)} noValidate>
                   <div className="col-9 row">
                     <div className="form-floating mb-3 col-6">
@@ -156,13 +177,13 @@ const MenuFormForAdmin = ({ updateFood, createFood }: updateDeleteType) => {
                     <div className="col-6 mx-auto">
                       {/* <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() => updateFood(`${fr.formData.food_id}`)} type="submit">Update
                       </button> */}
-                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() =>{  (window.confirm('Are you sure you wish to update this food?')) ? updateFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="submit">Update
+                      <button  className="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" onClick={() =>{  (window.confirm('Are you sure you wish to update this food?')) ? updateFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="submit">Update
                       </button>
                     </div>
                     <div className="col-6 mx-auto">
                       {/* <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => createFood(`${fr.formData.food_id}`)} type="button">Create
                       </button> */}
-                      <button className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => {  (window.confirm('Are you sure you wish to create a new food?')) ?createFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="button">Create
+                      <button  className="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" onClick={() => {  (window.confirm('Are you sure you wish to create a new food?')) ?createFood(`${fr.formData.food_id}`) : console.log("process cancel") }} type="submit">Create
                       </button>
                     </div>
                     <div className="w-100"></div>

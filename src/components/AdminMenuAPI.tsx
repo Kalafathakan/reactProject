@@ -96,13 +96,29 @@ const MenuAPIForAdmin = () => {
   const MupdateFood = (id: string) => {
     console.log("update this data")
     console.log(fr.formData)
+
+    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == ''  ){
+    console.log("empty section")
+      return
+    }else{
+     
+    
+      console.log(" food updated")
+
+
     sendPutRequest(id,fr.formData)
+    }
   }
   const McreateFood = (id: string) => {
     console.log("create this data")
     console.log(fr.formData)
     // sendPostRequest(fr.formData)
 
+    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == ''  ){
+      console.log("empty section")
+      return
+    }else{
+      console.log(" food created")
     let newData = {
       "food_id": fr.formData.food_id,
       "food_name": fr.formData.food_name,
@@ -116,6 +132,7 @@ const MenuAPIForAdmin = () => {
     }
     sendPostRequest(newData)
     sendGetRequest()
+  }
   }
 
 
