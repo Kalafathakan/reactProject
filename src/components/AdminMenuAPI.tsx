@@ -97,7 +97,7 @@ const MenuAPIForAdmin = () => {
     console.log("update this data")
     console.log(fr.formData)
 
-    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == ''  ){
+    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == '' ||fr.formData.description == '' ){
     console.log("empty section")
       return
     }else{
@@ -114,7 +114,7 @@ const MenuAPIForAdmin = () => {
     console.log(fr.formData)
     // sendPostRequest(fr.formData)
 
-    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == ''  ){
+    if(fr.formData.food_id == '' || fr.formData.food_name == '' || fr.formData.price == '' ||fr.formData.category == '' ||fr.formData.image == '' ||fr.formData.description == '' ){
       console.log("empty section")
       return
     }else{
